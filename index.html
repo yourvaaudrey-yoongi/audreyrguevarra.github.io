@@ -397,6 +397,50 @@
   }
 
   /* ══════════════════════════════
+     TESTIMONIALS SECTION
+  ══════════════════════════════ */
+  .testi-card {
+    background: var(--card);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 1.4rem;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .testi-quote {
+    font-family: 'Instrument Serif', serif;
+    font-size: 3.5rem;
+    color: var(--teal);
+    line-height: 0.5;
+    margin-bottom: 0.75rem;
+    opacity: 0.6;
+  }
+  .testi-text {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+  .testi-author {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-top: 1px solid var(--card-border);
+    padding-top: 0.75rem;
+  }
+  .testi-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .testi-role {
+    font-size: 0.75rem;
+    color: var(--muted2);
+  }
+
+  /* ══════════════════════════════
      CONTACT SECTION
   ══════════════════════════════ */
   .contact-list { display: flex; flex-direction: column; gap: 10px; }
@@ -641,6 +685,85 @@
       <div class="fit-label">If any of this sounds familiar — that's my zone.</div>
     </div>
 
+    <!-- ── TESTIMONIALS ── -->
+    <div class="section" id="sec-testimonials">
+      <p class="page-label">Kind words</p>
+      <h2 class="section-title">What clients say</h2>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Audrey quickly and easily integrated into our team. She successfully completed multiple projects and tasks when presented. She was in charge of lead distribution and provided valuable feedback to the team consistently. I would recommend Audrey to any company.</p>
+        <div class="testi-author">
+          <span class="testi-name">Toby</span>
+          <span class="testi-role">Client</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Audrey's communication skills were truly outstanding. What truly set her apart was her ability to perform under pressure. Even in the busiest moments, she remained focused, detail-oriented, and reliable — and never hesitated to step in where help was needed.</p>
+        <div class="testi-author">
+          <span class="testi-name">Katinka Lynch</span>
+          <span class="testi-role">Head Scheduler</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">I worked with Audrey for 10+ years. She was the ultimate subject-matter expert for her QA team — immersed in the product and processes, running calibration calls and participating in client calls. She is detail-oriented, a hard worker, and has a great attitude.</p>
+        <div class="testi-author">
+          <span class="testi-name">Leigha Riley</span>
+          <span class="testi-role">Program Manager, 10+ years</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Audrey's reliability is unmatched. Her proactive approach, excellent communication, and readiness to learn new technologies not only solve immediate challenges but contribute long-term value. More than just a reliable executor, Audrey is a true partner who helps drive the business forward.</p>
+        <div class="testi-author">
+          <span class="testi-name">Jule Kucera</span>
+          <span class="testi-role">Creator & Founder</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Thanks so much for all you did to help us! I know it was tedious and boring work, but was so important for us to have done. We really appreciate it!! Good luck with your future endeavors!</p>
+        <div class="testi-author">
+          <span class="testi-name">Farrah</span>
+          <span class="testi-role">via Slack</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Thank you, Audrey you're amazing and you know I will have some projects for you and I don't ever wanna lose touch with you. I think you're an amazing human being — just so many gifts and talents that you have. I want you to be successful. Thank you, honey.</p>
+        <div class="testi-author">
+          <span class="testi-name">Client</span>
+          <span class="testi-role">via WhatsApp</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Never worked with a VA before. When you find a great one, it's heaven. This one shares my vision and is documenting all our processes. Wowza!</p>
+        <div class="testi-author">
+          <span class="testi-name">Client</span>
+          <span class="testi-role">Business Owner</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">I appreciate you and you have been a blast to work with — you just got on with it, no hand holding. I'm glad I chose you.</p>
+        <div class="testi-author">
+          <span class="testi-name">Arielle</span>
+          <span class="testi-role">via Email</span>
+        </div>
+      </div>
+
+    </div>
+
     <!-- ── CONTACT ── -->
     <div class="section" id="sec-contact">
       <p class="page-label">Let's talk</p>
@@ -699,6 +822,10 @@
       <button class="nav-btn" onclick="go(this,'clients')">
         <span class="nav-ico">🤝</span>
         <span class="nav-lbl">Clients</span>
+      </button>
+      <button class="nav-btn" onclick="go(this,'testimonials')">
+        <span class="nav-ico">💬</span>
+        <span class="nav-lbl">Reviews</span>
       </button>
       <button class="nav-btn" onclick="go(this,'contact')">
         <span class="nav-ico">✉️</span>
