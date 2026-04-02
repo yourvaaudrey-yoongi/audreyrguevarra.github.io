@@ -473,13 +473,134 @@
   .contact-value { font-size: 0.9rem; font-weight: 500; color: var(--text); }
   .contact-arrow { margin-left: auto; color: var(--muted2); font-size: 0.9rem; }
 
-  .contact-note {
+  /* Contact form */
+  .contact-form-wrap {
+    background: var(--card);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .form-group { margin-bottom: 1rem; }
+  .form-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .form-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.8);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus { border-color: var(--teal); }
+  .form-input::placeholder { color: var(--muted2); }
+  .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  .form-submit {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+  .form-submit:active { transform: scale(0.98); }
+  .form-success {
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+  .success-icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+  .form-success p {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
     margin-top: 1.25rem;
     font-size: 0.82rem;
     color: var(--muted2);
     text-align: center;
     line-height: 1.6;
   }
+
+  /* Calendly CTA */
+  .calendly-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, rgba(45,212,191,0.15), rgba(134,239,172,0.15));
+    border: 1px solid rgba(45,212,191,0.3);
+    border-radius: 18px;
+    padding: 1.25rem 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .calendly-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .calendly-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .calendly-sub {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  .calendly-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 10px 18px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s, transform 0.15s;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+  .calendly-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  .contact-divider {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--muted2);
+    margin: 1rem 0;
+    position: relative;
+  }
+  .contact-divider::before,
+  .contact-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 35%;
+    height: 1px;
+    background: var(--card-border);
+  }
+  .contact-divider::before { left: 0; }
+  .contact-divider::after { right: 0; }
 
   /* ══════════════════════════════
      BOTTOM NAV
@@ -769,8 +890,42 @@
       <p class="page-label">Let's talk</p>
       <h2 class="section-title">Contact</h2>
 
+      <div class="calendly-cta">
+        <div class="calendly-text">
+          <span class="calendly-title">Book a free 30-min call</span>
+          <span class="calendly-sub">Let's talk about your systems</span>
+        </div>
+        <a class="calendly-btn" href="https://calendly.com/yourvaaudrey/30min" target="_blank">Book now →</a>
+      </div>
+
+      <div class="contact-divider">or send a message</div>
+
+      <div class="contact-form-wrap">
+        <form id="contact-form" action="https://formspree.io/f/mykbdzyq" method="POST">
+          <div class="form-group">
+            <label class="form-label">Your name</label>
+            <input type="text" name="name" class="form-input" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your email</label>
+            <input type="email" name="email" class="form-input" placeholder="jane@example.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea name="message" class="form-input form-textarea" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send message →</button>
+        </form>
+        <div id="form-success" class="form-success" style="display:none;">
+          <span class="success-icon">✅</span>
+          <p>Message sent! I'll get back to you within 24 hours.</p>
+        </div>
+      </div>
+
+      <div class="contact-divider">or reach out directly</div>
+
       <div class="contact-list">
-        <a class="contact-item" href="mailto:yourevaaudrey@gmail.com">
+        <a class="contact-item" href="mailto:yourevaaudrey@gmail.com?subject=Inquiry from your portfolio&body=Hi Audrey, I found your portfolio and would like to connect." target="_blank">
           <div class="contact-icon-wrap">📧</div>
           <div>
             <p class="contact-label">Email</p>
@@ -846,7 +1001,33 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Animate skill bars
+  // Handle contact form
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        } else {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      }
+    });
+  }
   function animateBars() {
     setTimeout(() => {
       document.querySelectorAll('.bar-fill').forEach(bar => {
