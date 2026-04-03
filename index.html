@@ -451,6 +451,100 @@
   }
 
   /* ══════════════════════════════
+     PILL GROUPS
+  ══════════════════════════════ */
+  .pill-groups { display: flex; flex-direction: column; gap: 12px; margin-bottom: 1.5rem; text-align: left; }
+  .pill-group {}
+  .pill-group-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted2);
+    margin-bottom: 6px;
+  }
+
+  /* ══════════════════════════════
+     HOW I THINK SECTION
+  ══════════════════════════════ */
+  .think-intro {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    border-left: 3px solid var(--teal);
+    background: var(--teal-soft);
+    border-radius: 0 12px 12px 0;
+    line-height: 1.6;
+  }
+  .think-card {
+    display: flex;
+    gap: 14px;
+    background: var(--card);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 1.25rem 1.4rem;
+    margin-bottom: 10px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .think-card:hover { transform: translateY(-2px); border-color: rgba(45,212,191,0.3); }
+  .think-icon {
+    font-size: 1.4rem;
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--teal-soft);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .think-body { flex: 1; }
+  .think-title { font-size: 0.92rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .think-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+  .think-quote {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--accent);
+    text-align: center;
+    padding: 1.25rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--card-border);
+  }
+
+  /* ══════════════════════════════
+     WORK CARD ENHANCEMENTS
+  ══════════════════════════════ */
+  .work-problem {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 0.6rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid rgba(239,68,68,0.3);
+  }
+  .work-solution {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 0.6rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid rgba(45,212,191,0.4);
+  }
+  .work-example {
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: var(--teal-soft);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 0.6rem;
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  /* ══════════════════════════════
      CONTACT SECTION
   ══════════════════════════════ */
   .contact-list { display: flex; flex-direction: column; gap: 10px; }
@@ -681,48 +775,110 @@
     <div class="section active" id="sec-me">
       <div class="hero">
         <div class="avatar-ring"><img src="data:image/png;base64,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" alt="Audrey Guevarra" /></div>
-        <h1 class="hero-name">Hey, I'm Audrey</h1>
-        <p class="hero-title">Operations & AI Integration Specialist</p>
+        <h1 class="hero-name">Your systems should<br>run without you.</h1>
+        <p class="hero-title">Operations &amp; AI Integration Specialist</p>
         <p class="hero-location">📍 Philippines, PH</p>
         <p class="hero-bio">
-          I help online businesses fix broken automations and clean up messy backend systems.
-          From CRM structure to workflow logic, I focus on making operations accurate,
-          efficient, and easy to manage. If your systems feel patched together,
-          I bring them back into order.
+          Most online businesses grow fast and build systems faster — which means by the time
+          things are working, nobody’s sure exactly how. Tags are inconsistent. Automations
+          misfire. Team members can’t onboard without asking you every step.
+          <br><br>
+          I fix that. I come in with a QA mindset — I don’t patch what’s visible, I find
+          what’s actually broken and rebuild it properly. 14 years of operations and quality
+          assurance, now applied to the tools and workflows running your business.
         </p>
 
         <div class="qa-card">
           <div class="qa-years">14</div>
           <div class="qa-text">
-            <span class="qa-title">Years in QA & Operations</span>
+            <span class="qa-title">Years in QA &amp; Operations</span>
             <span class="qa-sub">Former QA Supervisor · Team of 21 · Remote</span>
           </div>
         </div>
 
-        <div class="pills">
-          <span class="pill">GoHighLevel</span>
-          <span class="pill">Zapier</span>
-          <span class="pill">ConvertKit</span>
-          <span class="pill">Beehiiv</span>
-          <span class="pill">systeme.io</span>
-          <span class="pill">Zoho CRM</span>
-          <span class="pill">Airtable</span>
-          <span class="pill">Google Sheets</span>
-          <span class="pill">ServiceM8</span>
-          <span class="pill">ClickUp</span>
-          <span class="pill">Asana</span>
-          <span class="pill">Monday.com</span>
-          <span class="pill">Trello</span>
-          <span class="pill">Slack</span>
-          <span class="pill">ChatGPT</span>
-          <span class="pill">Claude</span>
-          <span class="pill">Gemini</span>
-          <span class="pill">Perplexity</span>
+        <div class="pill-groups">
+          <div class="pill-group">
+            <span class="pill-group-label">Automation &amp; CRM</span>
+            <div class="pills">
+              <span class="pill">GoHighLevel</span>
+              <span class="pill">Zapier</span>
+              <span class="pill">ConvertKit</span>
+              <span class="pill">Beehiiv</span>
+              <span class="pill">Zoho CRM</span>
+              <span class="pill">Make.com</span>
+            </div>
+          </div>
+          <div class="pill-group">
+            <span class="pill-group-label">Operations &amp; PM</span>
+            <div class="pills">
+              <span class="pill">Airtable</span>
+              <span class="pill">ClickUp</span>
+              <span class="pill">Google Sheets</span>
+              <span class="pill">Asana</span>
+              <span class="pill">Trello</span>
+            </div>
+          </div>
+          <div class="pill-group">
+            <span class="pill-group-label">AI &amp; Integration</span>
+            <div class="pills">
+              <span class="pill">Claude API</span>
+              <span class="pill">OpenAI API</span>
+              <span class="pill">Gemini</span>
+              <span class="pill">Perplexity</span>
+            </div>
+          </div>
         </div>
+
         <div class="status-badge">
           <div class="status-dot"></div>
           Available for new clients
         </div>
+      </div>
+    </div>
+
+    <!-- ── HOW I THINK ── -->
+    <div class="section" id="sec-think">
+      <p class="page-label">My approach</p>
+      <h2 class="section-title">How I think<br>about systems</h2>
+
+      <div class="think-intro">
+        Most people fix what is visible. I fix what is actually wrong.
+      </div>
+
+      <div class="think-card">
+        <div class="think-icon">🗺️</div>
+        <div class="think-body">
+          <h3 class="think-title">Map before touching</h3>
+          <p class="think-desc">Before I change anything, I trace the full flow — every trigger, condition, and downstream effect. A fix that creates a new problem somewhere else is not a fix.</p>
+        </div>
+      </div>
+
+      <div class="think-card">
+        <div class="think-icon">🔬</div>
+        <div class="think-body">
+          <h3 class="think-title">Root cause, not symptoms</h3>
+          <p class="think-desc">Patching the visible issue is fast. Finding why it happened takes longer but stays fixed. I come from 14 years of QA work — my job was always to find what everyone else missed.</p>
+        </div>
+      </div>
+
+      <div class="think-card">
+        <div class="think-icon">📐</div>
+        <div class="think-body">
+          <h3 class="think-title">Build for reliability, not just function</h3>
+          <p class="think-desc">A system that works when conditions are perfect is not reliable. I build and document workflows that hold up when things change — new tools, new team members, new volume.</p>
+        </div>
+      </div>
+
+      <div class="think-card">
+        <div class="think-icon">🤖</div>
+        <div class="think-body">
+          <h3 class="think-title">AI as a working step, not a chat tool</h3>
+          <p class="think-desc">I integrate AI into actual workflows via API — so it reads data, makes decisions, and triggers actions automatically. Not a tab you open. A step that runs without you.</p>
+        </div>
+      </div>
+
+      <div class="think-quote">
+        "Systems that are built right don’t need constant fixing."
       </div>
     </div>
 
@@ -732,33 +888,120 @@
       <h2 class="section-title">Services</h2>
 
       <div class="work-card">
+        <div class="work-icon">🤖</div>
+        <h3>AI Integration into Business Workflows</h3>
+        <p class="work-problem">You use AI tools but they live outside your systems — you copy-paste, manually trigger, and still end up doing the same work twice.</p>
+        <p class="work-solution">I connect AI models like Claude and GPT into your actual workflows via API. AI becomes an active step in your automation — reading data, writing responses, routing outcomes — with zero manual intervention.</p>
+        <div class="work-example">Built a hiring pipeline where Claude read each overnight application, sent a personalized reply instantly, and routed data to Airtable, ClickUp, and Kit via API. Response time: 2 days → instant.</div>
+        <span class="work-tag">Claude API · OpenAI API · Gmail · Airtable · ClickUp · Kit</span>
+      </div>
+
+      <div class="work-card">
         <div class="work-icon">🔍</div>
-        <h3>Automation Audit & Fix</h3>
-        <p>I trace your full user journey — trigger to outcome — and find exactly where things break. Broken Zaps, wrong tags, mis-sequenced automations. Fixed, not patched.</p>
-        <span class="work-tag">GHL · Zapier · ConvertKit · Beehiiv</span>
+        <h3>Automation Systems Audit &amp; Fix</h3>
+        <p class="work-problem">Your Zaps fire, your sequences run — but something is off. Leads fall through. Tags don’t apply. Emails go to the wrong people. You’ve fixed it twice and it broke again.</p>
+        <p class="work-solution">I map your full trigger-to-outcome flow, find every break point, and rebuild the logic so it works consistently. I don’t guess. I follow the logic until I find it.</p>
+        <span class="work-tag">GHL · Zapier · ConvertKit · Make.com · Beehiiv · Kit</span>
       </div>
 
       <div class="work-card">
         <div class="work-icon">🗂️</div>
-        <h3>CRM Cleanup & Structure</h3>
-        <p>Messy tags, duplicate contacts, logic that made sense two years ago. I restructure your CRM so segmentation works and your data is actually usable.</p>
+        <h3>CRM Structure &amp; Cleanup</h3>
+        <p class="work-problem">Your CRM has grown without a system. Tags from three campaigns ago still exist. Contacts are duplicated. Your pipeline stages don’t reflect how deals actually move.</p>
+        <p class="work-solution">I audit your full CRM architecture, remove the noise, rebuild tag and segment logic, and document it so anyone on your team can maintain it — not just you.</p>
         <span class="work-tag">GoHighLevel · Zoho CRM · Airtable · ConvertKit</span>
       </div>
 
       <div class="work-card">
         <div class="work-icon">📋</div>
-        <h3>SOP & Workflow Documentation</h3>
-        <p>Systems only work long-term if someone else can run them. I document your workflows clearly so your team can execute without asking you how every time.</p>
+        <h3>SOP &amp; Workflow Documentation</h3>
+        <p class="work-problem">The system only works because you are in it. Nobody else knows how. When you step away, things stall or break.</p>
+        <p class="work-solution">I document your workflows at the level your team actually needs — step-by-step, with conditions, exceptions, and tool-specific instructions. Clear enough that a new hire can follow it on day one.</p>
         <span class="work-tag">Google Sheets · Airtable · ClickUp · Loom</span>
-      </div>
-      <div class="work-card">
-        <div class="work-icon">🤖</div>
-        <h3>AI-Powered Hiring Pipeline</h3>
-        <p>Built an end-to-end AI hiring system for a remote-first startup operating on EST. When Filipino applicants responded overnight, Claude automatically read each application and sent a personalized reply — instantly. Applicant data was then routed to Airtable, ClickUp, and Kit via API with zero manual intervention.</p>
-        <span class="work-tag">Claude API · Gmail · Airtable API · ClickUp API · Kit API</span>
       </div>
 
     </div>
+
+    <!-- ── TESTIMONIALS ── -->
+    <div class="section" id="sec-testimonials">
+      <p class="page-label">Kind words</p>
+      <h2 class="section-title">What clients say</h2>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">I appreciate you and you have been a blast to work with — you just got on with it, no hand holding. I’m glad I chose you.</p>
+        <div class="testi-author">
+          <span class="testi-name">Arielle</span>
+          <span class="testi-role">via Email</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Audrey’s reliability is unmatched. Her proactive approach, readiness to learn new technologies, and excellent communication contribute long-term value. More than just a reliable executor — a true partner who helps drive the business forward.</p>
+        <div class="testi-author">
+          <span class="testi-name">Jule Kucera</span>
+          <span class="testi-role">Creator &amp; Founder</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">I worked with Audrey for 10+ years. She was the ultimate subject-matter expert — immersed in the product, running calibration calls, participating in client calls. Detail-oriented, hard-working, great attitude.</p>
+        <div class="testi-author">
+          <span class="testi-name">Leigha Riley</span>
+          <span class="testi-role">Program Manager · 10+ years working together</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Audrey’s communication skills were truly outstanding. What truly set her apart was her ability to perform under pressure — focused, detail-oriented, and reliable even in the busiest moments.</p>
+        <div class="testi-author">
+          <span class="testi-name">Katinka Lynch</span>
+          <span class="testi-role">Head Scheduler</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Never worked with a VA before. When you find a great one, it’s heaven. This one shares my vision and is documenting all our processes. Wowza!</p>
+        <div class="testi-author">
+          <span class="testi-name">Client</span>
+          <span class="testi-role">Business Owner</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Audrey quickly integrated into our team, completed multiple projects, handled lead distribution, and provided valuable feedback consistently. I would recommend her to any company.</p>
+        <div class="testi-author">
+          <span class="testi-name">Toby</span>
+          <span class="testi-role">Client</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Thank you Audrey — you’re amazing and I don’t ever want to lose touch with you. You have so many gifts and talents and I want you to be successful.</p>
+        <div class="testi-author">
+          <span class="testi-name">Client</span>
+          <span class="testi-role">via WhatsApp</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Thanks so much for all you did to help us. It was important work and we really appreciate it. Good luck with your future endeavors!</p>
+        <div class="testi-author">
+          <span class="testi-name">Farrah</span>
+          <span class="testi-role">via Slack</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── SKILLS ── -->
     <div class="section" id="sec-skills">
       <p class="page-label">Capabilities</p>
       <h2 class="section-title">Skills</h2>
@@ -766,7 +1009,7 @@
       <div class="skill-card">
         <div class="skill-card-icon">🔍</div>
         <div class="skill-card-body">
-          <h3 class="skill-card-title">QA & Error Detection</h3>
+          <h3 class="skill-card-title">QA &amp; Error Detection</h3>
           <p class="skill-card-desc">14 years of reviewing workflows, auditing processes, and finding exactly where things break — not just patching symptoms but identifying the root cause and fixing it properly.</p>
           <span class="skill-card-tag">Expert · 14 years</span>
         </div>
@@ -775,7 +1018,7 @@
       <div class="skill-card">
         <div class="skill-card-icon">🤖</div>
         <div class="skill-card-body">
-          <h3 class="skill-card-title">AI Integration & APIs</h3>
+          <h3 class="skill-card-title">AI Integration &amp; APIs</h3>
           <p class="skill-card-desc">I connect AI tools like Claude into live business workflows via API — not just using AI as a chat tool, but making it an active step inside automation systems that run without human intervention.</p>
           <span class="skill-card-tag">Advanced</span>
         </div>
@@ -785,7 +1028,7 @@
         <div class="skill-card-icon">⚙️</div>
         <div class="skill-card-body">
           <h3 class="skill-card-title">Automation Troubleshooting</h3>
-          <p class="skill-card-desc">When Zapier breaks, GHL misfires, ConvertKit sequences stall, or any automation stops working as expected — I trace the full trigger-to-outcome path and find the exact break point. Works across platforms. I don't guess — I follow the logic.</p>
+          <p class="skill-card-desc">When Zapier breaks, GHL misfires, ConvertKit sequences stall, or any automation stops working — I trace the full trigger-to-outcome path and find the exact break point. Works across platforms. I don’t guess — I follow the logic.</p>
           <span class="skill-card-tag">Expert</span>
         </div>
       </div>
@@ -793,8 +1036,8 @@
       <div class="skill-card">
         <div class="skill-card-icon">🗂️</div>
         <div class="skill-card-body">
-          <h3 class="skill-card-title">CRM Logic & Structure</h3>
-          <p class="skill-card-desc">Messy tags, broken pipelines, and contacts that fall through the cracks. I rebuild CRM architecture so segmentation is clean, logic is consistent, and data is actually usable.</p>
+          <h3 class="skill-card-title">CRM Logic &amp; Structure</h3>
+          <p class="skill-card-desc">Messy tags, broken pipelines, contacts that fall through the cracks. I rebuild CRM architecture so segmentation is clean, logic is consistent, and data is actually usable.</p>
           <span class="skill-card-tag">Expert</span>
         </div>
       </div>
@@ -812,7 +1055,7 @@
         <div class="skill-card-icon">🧩</div>
         <div class="skill-card-body">
           <h3 class="skill-card-title">Systems Thinking</h3>
-          <p class="skill-card-desc">I don't just do tasks — I see how everything connects. Before touching anything, I map out the full flow so fixes don't create new problems somewhere else downstream.</p>
+          <p class="skill-card-desc">I don’t just do tasks — I see how everything connects. Before touching anything, I map out the full flow so fixes don’t create new problems somewhere else downstream.</p>
           <span class="skill-card-tag">Expert</span>
         </div>
       </div>
@@ -821,112 +1064,34 @@
 
     <!-- ── CLIENTS ── -->
     <div class="section" id="sec-clients">
-      <p class="page-label">Who I work with</p>
-      <h2 class="section-title">Ideal clients</h2>
+      <p class="page-label">Right fit?</p>
+      <h2 class="section-title">Who I work<br>best with</h2>
 
       <div class="client-intro">
-        <strong>Coaches, course creators, and online business owners</strong> who built fast and now have backend systems that are messy, undocumented, or quietly broken.
+        <strong>Online coaches, course creators, and digital business owners</strong> who built their systems fast — and now those systems are quietly costing them time, errors, and reliability.
       </div>
 
       <ul class="signal-list">
-        <li>Your automations run, but nobody's sure exactly how</li>
-        <li>Tags and segments in your CRM are out of control</li>
-        <li>Email performance has dropped and you don't know why</li>
-        <li>New team members can't onboard without constant hand-holding</li>
-        <li>You've patched the same issue more than twice</li>
+        <li>Your automations run, but nobody on your team knows exactly how</li>
+        <li>You’ve fixed the same broken workflow more than twice</li>
+        <li>Tags and segments in your CRM are inconsistent or out of control</li>
+        <li>Email performance has dropped and you don’t know why</li>
+        <li>New team members can’t onboard without you walking them through every step</li>
+        <li>You use AI tools but they’re not connected to anything — just tabs you open manually</li>
       </ul>
 
-      <div class="fit-label">If any of this sounds familiar — that's my zone.</div>
-    </div>
-
-    <!-- ── TESTIMONIALS ── -->
-    <div class="section" id="sec-testimonials">
-      <p class="page-label">Kind words</p>
-      <h2 class="section-title">What clients say</h2>
-
-      <div class="testi-card">
-        <div class="testi-quote">"</div>
-        <p class="testi-text">Audrey quickly and easily integrated into our team. She successfully completed multiple projects and tasks when presented. She was in charge of lead distribution and provided valuable feedback to the team consistently. I would recommend Audrey to any company.</p>
-        <div class="testi-author">
-          <span class="testi-name">Toby</span>
-          <span class="testi-role">Client</span>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-quote">"</div>
-        <p class="testi-text">Audrey's communication skills were truly outstanding. What truly set her apart was her ability to perform under pressure. Even in the busiest moments, she remained focused, detail-oriented, and reliable — and never hesitated to step in where help was needed.</p>
-        <div class="testi-author">
-          <span class="testi-name">Katinka Lynch</span>
-          <span class="testi-role">Head Scheduler</span>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-quote">"</div>
-        <p class="testi-text">I worked with Audrey for 10+ years. She was the ultimate subject-matter expert for her QA team — immersed in the product and processes, running calibration calls and participating in client calls. She is detail-oriented, a hard worker, and has a great attitude.</p>
-        <div class="testi-author">
-          <span class="testi-name">Leigha Riley</span>
-          <span class="testi-role">Program Manager, 10+ years</span>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-quote">"</div>
-        <p class="testi-text">Audrey's reliability is unmatched. Her proactive approach, excellent communication, and readiness to learn new technologies not only solve immediate challenges but contribute long-term value. More than just a reliable executor, Audrey is a true partner who helps drive the business forward.</p>
-        <div class="testi-author">
-          <span class="testi-name">Jule Kucera</span>
-          <span class="testi-role">Creator & Founder</span>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-quote">"</div>
-        <p class="testi-text">Thanks so much for all you did to help us! I know it was tedious and boring work, but was so important for us to have done. We really appreciate it!! Good luck with your future endeavors!</p>
-        <div class="testi-author">
-          <span class="testi-name">Farrah</span>
-          <span class="testi-role">via Slack</span>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-quote">"</div>
-        <p class="testi-text">Thank you, Audrey you're amazing and you know I will have some projects for you and I don't ever wanna lose touch with you. I think you're an amazing human being — just so many gifts and talents that you have. I want you to be successful. Thank you, honey.</p>
-        <div class="testi-author">
-          <span class="testi-name">Client</span>
-          <span class="testi-role">via WhatsApp</span>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-quote">"</div>
-        <p class="testi-text">Never worked with a VA before. When you find a great one, it's heaven. This one shares my vision and is documenting all our processes. Wowza!</p>
-        <div class="testi-author">
-          <span class="testi-name">Client</span>
-          <span class="testi-role">Business Owner</span>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-quote">"</div>
-        <p class="testi-text">I appreciate you and you have been a blast to work with — you just got on with it, no hand holding. I'm glad I chose you.</p>
-        <div class="testi-author">
-          <span class="testi-name">Arielle</span>
-          <span class="testi-role">via Email</span>
-        </div>
-      </div>
-
+      <div class="fit-label">If your systems feel held together with patches — that’s exactly where I work.</div>
     </div>
 
     <!-- ── CONTACT ── -->
     <div class="section" id="sec-contact">
-      <p class="page-label">Let's talk</p>
+      <p class="page-label">Let’s talk</p>
       <h2 class="section-title">Contact</h2>
 
       <div class="calendly-cta">
         <div class="calendly-text">
-          <span class="calendly-title">Book a free 30-min call</span>
-          <span class="calendly-sub">Let's talk about your systems</span>
+          <span class="calendly-title">Book a free 30-min systems call</span>
+          <span class="calendly-sub">I’ll tell you what’s actually broken and what it would take to fix it.</span>
         </div>
         <a class="calendly-btn" href="https://calendly.com/yourvaaudrey/30min" target="_blank">Book now →</a>
       </div>
@@ -945,13 +1110,13 @@
           </div>
           <div class="form-group">
             <label class="form-label">Message</label>
-            <textarea name="message" class="form-input form-textarea" placeholder="Tell me about your project..." required></textarea>
+            <textarea name="message" class="form-input form-textarea" placeholder="Tell me what’s broken or what you’re trying to build..." required></textarea>
           </div>
           <button type="submit" class="form-submit">Send message →</button>
         </form>
         <div id="form-success" class="form-success" style="display:none;">
           <span class="success-icon">✅</span>
-          <p>Message sent! I'll get back to you within 24 hours.</p>
+          <p>Message sent! I’ll get back to you within 24 hours.</p>
         </div>
       </div>
 
@@ -975,7 +1140,7 @@
           <span class="contact-arrow">→</span>
         </a>
         <a class="contact-item" href="https://v2.onlinejobs.ph/jobseekers/info/495236" target="_blank">
-          <div class="contact-icon-wrap">🌏</div>
+          <div class="contact-icon-wrap">🌐</div>
           <div>
             <p class="contact-label">OnlineJobs.ph</p>
             <p class="contact-value">View my profile</p>
@@ -985,7 +1150,7 @@
       </div>
 
       <p class="contact-note">
-        Best for ops cleanup, automation fixes, and CRM structure projects.<br>
+        Best for ops cleanup, automation fixes, CRM structure, and AI integration projects.<br>
         Response within 24 hours.
       </p>
     </div>
@@ -999,21 +1164,21 @@
         <span class="nav-ico">🙂</span>
         <span class="nav-lbl">Me</span>
       </button>
+      <button class="nav-btn" onclick="go(this,'think')">
+        <span class="nav-ico">🧠</span>
+        <span class="nav-lbl">Approach</span>
+      </button>
       <button class="nav-btn" onclick="go(this,'work')">
         <span class="nav-ico">💼</span>
         <span class="nav-lbl">Work</span>
       </button>
-      <button class="nav-btn" onclick="go(this,'skills')">
-        <span class="nav-ico">⚙️</span>
-        <span class="nav-lbl">Skills</span>
-      </button>
-      <button class="nav-btn" onclick="go(this,'clients')">
-        <span class="nav-ico">🤝</span>
-        <span class="nav-lbl">Clients</span>
-      </button>
       <button class="nav-btn" onclick="go(this,'testimonials')">
         <span class="nav-ico">💬</span>
         <span class="nav-lbl">Reviews</span>
+      </button>
+      <button class="nav-btn" onclick="go(this,'skills')">
+        <span class="nav-ico">⚙️</span>
+        <span class="nav-lbl">Skills</span>
       </button>
       <button class="nav-btn" onclick="go(this,'contact')">
         <span class="nav-ico">✉️</span>
@@ -1024,7 +1189,6 @@
 </div>
 
 <script>
-  // Tab switching
   function go(btn, id) {
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
@@ -1033,7 +1197,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Handle contact form
   const form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', async function(e) {
@@ -1059,13 +1222,6 @@
         btn.disabled = false;
       }
     });
-  }
-  function animateBars() {
-    setTimeout(() => {
-      document.querySelectorAll('.bar-fill').forEach(bar => {
-        bar.style.width = bar.dataset.w;
-      });
-    }, 80);
   }
 </script>
 
