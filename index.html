@@ -598,6 +598,13 @@
     color: var(--muted2);
     margin-bottom: 6px;
   }
+  .pill-group-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 10px;
+    max-width: 340px;
+  }
 
   /* ══════════════════════════════
      HOW I THINK SECTION
@@ -908,9 +915,11 @@
               <span class="pill">GoHighLevel</span>
               <span class="pill">Zapier</span>
               <span class="pill">ConvertKit</span>
+              <span class="pill">Kit</span>
               <span class="pill">Beehiiv</span>
               <span class="pill">Zoho CRM</span>
               <span class="pill">Make.com</span>
+              <span class="pill">ManyChat</span>
             </div>
           </div>
           <div class="pill-group">
@@ -919,17 +928,27 @@
               <span class="pill">Airtable</span>
               <span class="pill">ClickUp</span>
               <span class="pill">Google Sheets</span>
+              <span class="pill">Notion</span>
               <span class="pill">Asana</span>
               <span class="pill">Trello</span>
+              <span class="pill">Skool</span>
             </div>
           </div>
           <div class="pill-group">
             <span class="pill-group-label">AI &amp; Integration</span>
+            <p class="pill-group-desc">
+              I don't just use AI tools - I build with them. API connections, automation logic,
+              custom scripts, and full pipeline builds.
+            </p>
             <div class="pills">
               <span class="pill">Claude API</span>
               <span class="pill">OpenAI API</span>
               <span class="pill">Gemini</span>
               <span class="pill">Perplexity</span>
+              <span class="pill">Node.js</span>
+              <span class="pill">Codex</span>
+              <span class="pill">Google Apps Script</span>
+              <span class="pill">Make.com</span>
             </div>
           </div>
         </div>
@@ -997,7 +1016,7 @@
         <h3>AI Integration into Business Workflows</h3>
         <p class="work-problem">You use AI tools but they live outside your systems — you copy-paste, manually trigger, and still end up doing the same work twice.</p>
         <p class="work-solution">I connect AI models like Claude and GPT into your actual workflows via API. AI becomes an active step in your automation — reading data, writing responses, routing outcomes — with zero manual intervention.</p>
-        <div class="work-example">Built a hiring pipeline where Claude read each overnight application, sent a personalized reply instantly, and routed data to Airtable, ClickUp, and Kit via API. Response time: 2 days → instant.</div>
+        <div class="work-example">Built a hiring pipeline where Claude read each incoming application, sent a personalized reply within minutes of receipt, and routed data to Airtable, ClickUp, and Kit via API. Response time: 2 days &rarr; under 5 minutes. (Not instant &mdash; the bot polls the inbox every 5 minutes by design, so no reply fires before the application is fully received and logged.)</div>
         <span class="work-tag">Claude API · OpenAI API · Gmail · Airtable · ClickUp · Kit</span>
       </div>
 
@@ -1032,68 +1051,149 @@
       <h2 class="section-title">Systems case study</h2>
 
       <div class="systems-hero">
-        <div class="systems-hero-title">AI-assisted applicant automation system</div>
+        <div class="systems-hero-title">Workflow systems built for reliability, follow-through, and visibility</div>
         <div class="systems-hero-desc">
-          A backend workflow built to reduce manual inbox handling, improve applicant tracking, and keep follow-up moving across multiple tools.
+          Three automation case studies showing how I connect inboxes, pipelines, AI interpretation, and reporting layers across the same operational ecosystem.
         </div>
       </div>
 
       <div class="case-card">
         <div class="case-head">
-          <div class="case-icon">🧩</div>
+          <div class="case-icon">&#129513;</div>
           <div>
-            <div class="case-title">Applicant intake, routing, and follow-up pipeline</div>
-            <div class="case-sub">Multi-step system across email, CRM, task management, and AI support</div>
+            <div class="case-title">Hiring Pipeline Automation</div>
+            <div class="case-sub">Intake, routing, and data sync across email, Airtable, ClickUp, and Kit</div>
           </div>
         </div>
 
         <div class="case-block">
           <span class="case-label">Problem</span>
           <p class="case-text">
-            Applicant handling depended too heavily on manual inbox work, delayed responses, and disconnected tools. Tracking, follow-up, and stage visibility needed to be more consistent.
+            Every application came into a shared inbox and sat there until someone manually read it, replied, and copied the data into the right tools. Response time averaged 2 days. Nothing was tracked consistently.
           </p>
         </div>
 
         <div class="case-block">
           <span class="case-label">What I built</span>
           <ul class="case-list">
-            <li>Auto-reply workflow for incoming applicant emails</li>
-            <li>Applicant pipeline sync across Airtable, ClickUp, and Kit</li>
-            <li>Stage-based follow-up automation</li>
-            <li>AI-assisted reply interpretation for incoming responses</li>
-            <li>Daily accountability and stage-tracking support workflows</li>
-            <li>Scheduled task orchestration to keep systems running consistently</li>
+            <li>A Node.js bot that monitors the hiring inbox every 5 minutes, detects new applications, and sends a personalized reply within minutes of receipt</li>
+            <li>Auto-labels the Gmail thread after replying to prevent duplicate sends</li>
+            <li>Logs each applicant to CSV and creates an Airtable record automatically</li>
+            <li>A PowerShell pipeline that picks up new Airtable records hourly and creates ClickUp tasks and Kit subscriptions, writing all IDs back to Airtable to keep everything in sync</li>
           </ul>
         </div>
 
         <div class="case-block">
-          <span class="case-label">How I approached it</span>
+          <span class="case-label">Why 5 minutes and not instant</span>
           <p class="case-text">
-            I treated it as a systems problem, not a one-off automation problem. I mapped the flow from inbox to pipeline to follow-up, separated the tasks that needed automation from the tasks that needed structure, then built supporting workflows around reliability and visibility.
+            The bot polls the inbox on a 5-minute cycle rather than a live webhook &mdash; this keeps it stable, self-recovering, and runnable on a local Windows machine via Task Scheduler without needing a hosted server. The tradeoff is intentional.
           </p>
         </div>
 
         <div class="case-block">
-          <span class="case-label">Business value</span>
+          <span class="case-label">Result</span>
           <p class="case-text">
-            Faster response handling, clearer applicant tracking, reduced manual routing, and less day-to-day dependency on one person remembering every next step.
+            Response time dropped from 2 days to under 5 minutes. Applicant data flows automatically across all tools with no manual copy-paste.
           </p>
         </div>
 
         <div class="case-tags">
           <span class="case-tag">Node.js</span>
           <span class="case-tag">PowerShell</span>
+          <span class="case-tag">Gmail OAuth</span>
           <span class="case-tag">Airtable</span>
           <span class="case-tag">ClickUp</span>
           <span class="case-tag">Kit</span>
-          <span class="case-tag">Slack</span>
-          <span class="case-tag">Task Scheduler</span>
-          <span class="case-tag">AI-assisted workflows</span>
+          <span class="case-tag">Windows Task Scheduler</span>
+          <span class="case-tag">Codex</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-head">
+          <div class="case-icon">&#128236;</div>
+          <div>
+            <div class="case-title">AI-Powered Follow-Up System</div>
+            <div class="case-sub">Stage-based outreach for non-joiners and inactive members</div>
+          </div>
+        </div>
+
+        <div class="case-block">
+          <span class="case-label">Problem</span>
+          <p class="case-text">
+            Applicants were getting invited to the Skool community but a portion never joined. Of those who did join, many never started the bootcamp. There was no system tracking either group or following up consistently.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-label">What I built</span>
+          <ul class="case-list">
+            <li>A Follow-Up Bot that reads the Community Pipeline in Airtable, checks funnel stage and last contact date, and sends stage-specific emails automatically &mdash; up to 3 nudges for non-joiners, check-ins for inactive members asking where they're stuck and how to help</li>
+            <li>A Stage Checker that detects funnel transitions (Applied &rarr; Joined Skool &rarr; Certified &rarr; Post-Interview &rarr; Hired), updates Airtable automatically, and triggers outreach emails on key stage changes</li>
+            <li>An Interpreter (AI-powered) that reads incoming Gmail replies, runs each one through Claude to analyze intent, and writes structured user state back to Airtable &mdash; so the follow-up bot knows whether to skip, continue, or escalate</li>
+          </ul>
+        </div>
+
+        <div class="case-block">
+          <span class="case-label">Result</span>
+          <p class="case-text">
+            Follow-up runs automatically on a schedule. No applicant falls through silently. The AI layer means responses are read and acted on &mdash; not just logged.
+          </p>
+        </div>
+
+        <div class="case-tags">
+          <span class="case-tag">Node.js</span>
+          <span class="case-tag">Gmail OAuth</span>
+          <span class="case-tag">Airtable</span>
+          <span class="case-tag">Claude API</span>
+          <span class="case-tag">Windows Task Scheduler</span>
+          <span class="case-tag">Codex</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-head">
+          <div class="case-icon">&#128202;</div>
+          <div>
+            <div class="case-title">Graduate Accountability Tracking</div>
+            <div class="case-sub">Daily submission tracking, nudges, and summary reporting</div>
+          </div>
+        </div>
+
+        <div class="case-block">
+          <span class="case-label">Problem</span>
+          <p class="case-text">
+            After certification, graduates were expected to submit daily accountability reports via Google Form. There was no system checking who submitted, flagging who didn't, or surfacing that information to anyone.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-label">What I built</span>
+          <ul class="case-list">
+            <li>A Form Sync script that pulls new Google Form submissions from Sheets, deduplicates by name and date, and creates structured records in Airtable's Daily Accountability table</li>
+            <li>An Accountability Checker that runs daily, flags graduates who haven't submitted, sends nudge emails, updates priority fields in Airtable, and generates a daily summary for the team</li>
+          </ul>
+        </div>
+
+        <div class="case-block">
+          <span class="case-label">Result</span>
+          <p class="case-text">
+            Silent drop-off became visible. The team gets a daily report without manually checking anything. Graduates who go quiet get nudged automatically.
+          </p>
+        </div>
+
+        <div class="case-tags">
+          <span class="case-tag">Node.js</span>
+          <span class="case-tag">Google Sheets API</span>
+          <span class="case-tag">Gmail OAuth</span>
+          <span class="case-tag">Airtable</span>
+          <span class="case-tag">Windows Task Scheduler</span>
+          <span class="case-tag">Codex</span>
         </div>
       </div>
     </div>
 
-    <!-- ── TESTIMONIALS ── -->
+    <!-- TESTIMONIALS -->
     <div class="section" id="sec-testimonials">
       <p class="page-label">Kind words</p>
       <h2 class="section-title">What clients say</h2>
@@ -1138,7 +1238,7 @@
         <div class="testi-quote">"</div>
         <p class="testi-text">Never worked with a VA before. When you find a great one, it's heaven. This one shares my vision and is documenting all our processes. Wowza!</p>
         <div class="testi-author">
-          <span class="testi-name">Client</span>
+          <span class="testi-name">Hope</span>
           <span class="testi-role">Business Owner</span>
         </div>
       </div>
@@ -1156,7 +1256,7 @@
         <div class="testi-quote">"</div>
         <p class="testi-text">Thank you Audrey — you're amazing and I don't ever want to lose touch with you. You have so many gifts and talents and I want you to be successful.</p>
         <div class="testi-author">
-          <span class="testi-name">Client</span>
+          <span class="testi-name">Shannon</span>
           <span class="testi-role">via WhatsApp</span>
         </div>
       </div>
@@ -1189,8 +1289,8 @@
         <div class="skill-card-icon">🤖</div>
         <div class="skill-card-body">
           <h3 class="skill-card-title">AI Integration &amp; APIs</h3>
-          <p class="skill-card-desc">I connect AI tools like Claude into live business workflows via API — not just using AI as a chat tool, but making it an active step inside automation systems that run without human intervention.</p>
-          <span class="skill-card-tag">Advanced</span>
+          <p class="skill-card-desc">I connect AI tools like Claude into live business workflows via API — not just using AI as a chat tool, but making it an active step inside automation systems that run without human intervention. This includes writing Google Apps Script bots, building training platforms from scratch, and wiring multi-step API pipelines across Claude, Make.com, Airtable, and Gmail.</p>
+          <span class="skill-card-tag">Expert</span>
         </div>
       </div>
 
@@ -1292,11 +1392,11 @@
       <div class="contact-divider">or reach out directly</div>
 
       <div class="contact-list">
-        <a class="contact-item" href="mailto:yourevaaudrey@gmail.com?subject=Inquiry from your portfolio&body=Hi Audrey, I found your portfolio and would like to connect." target="_blank">
+        <a class="contact-item" href="mailto:yourvaaudrey@gmail.com?subject=Inquiry from your portfolio&body=Hi Audrey, I found your portfolio and would like to connect." target="_blank">
           <div class="contact-icon-wrap">📧</div>
           <div>
             <p class="contact-label">Email</p>
-            <p class="contact-value">yourevaaudrey@gmail.com</p>
+            <p class="contact-value">yourvaaudrey@gmail.com</p>
           </div>
           <span class="contact-arrow">→</span>
         </a>
@@ -1396,3 +1496,4 @@
 
 </body>
 </html>
+
