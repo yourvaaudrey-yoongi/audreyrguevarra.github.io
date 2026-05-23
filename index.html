@@ -1,560 +1,994 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Audrey | Backend Automation &amp; CRM Systems Specialist</title>
-<meta name="description" content="I build and stabilize backend automation systems so leads, customers, and operations don't fall through the cracks — across CRMs, email tools, Airtable, Zapier, APIs, and AI-assisted workflows." />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Audrey Guevarra — Backend Operations & Automation Support Specialist. I audit, clean up, and stabilize backend systems so leads, customers, and operations don't fall through the cracks." />
+  <title>Audrey Guevarra | Backend Operations & Automation Support Specialist</title>
 
-  :root {
-    --teal: #2dd4bf;
-    --teal-soft: rgba(45,212,191,0.15);
-    --green: #86efac;
-    --sage: #6ee7b7;
-    --text: #1c1c1e;
-    --muted: #6b7280;
-    --muted2: #9ca3af;
-    --bg: #f5f4f0;
-    --card: rgba(255,255,255,0.72);
-    --card-border: rgba(0,0,0,0.07);
-    --nav-bg: rgba(255,255,255,0.88);
-    --accent: #0d9488;
-  }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  html, body {
-    min-height: 100vh;
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    overflow-x: hidden;
-  }
+  <style>
+    /* ─── RESET & TOKENS ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .mesh {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.55;
-  }
-  .blob-1 { width:480px;height:480px;background:radial-gradient(circle,#86efac,transparent 70%);top:-80px;left:-120px;animation:drift1 10s ease-in-out infinite; }
-  .blob-2 { width:380px;height:380px;background:radial-gradient(circle,#2dd4bf,transparent 70%);top:5%;right:-80px;animation:drift2 13s ease-in-out infinite; }
-  .blob-3 { width:320px;height:320px;background:radial-gradient(circle,#d1fae5,transparent 70%);bottom:20%;left:20%;animation:drift3 9s ease-in-out infinite; }
-  .blob-4 { width:260px;height:260px;background:radial-gradient(circle,#a7f3d0,transparent 70%);bottom:5%;right:10%;animation:drift1 14s ease-in-out infinite reverse; }
+    :root {
+      --bg:          #F7F5F1;
+      --surface:     #FFFFFF;
+      --surface-2:   #F0EDE8;
+      --ink:         #1A1814;
+      --ink-soft:    #4A4641;
+      --ink-muted:   #7A746E;
+      --accent:      #2E5D4B;
+      --accent-warm: #C8763A;
+      --accent-pale: #D9EDE5;
+      --line:        #DDD9D3;
+      --radius:      6px;
+      --ff-display:  'DM Serif Display', Georgia, serif;
+      --ff-body:     'DM Sans', system-ui, sans-serif;
+      --max:         1080px;
+      --section-gap: 100px;
+    }
 
-  @keyframes drift1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(25px,-30px)} }
-  @keyframes drift2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,20px)} }
-  @keyframes drift3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-20px)} }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff-body);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  .portfolio { min-height:100vh;display:flex;flex-direction:column;position:relative; }
+    /* ─── TYPOGRAPHY ─────────────────────────────────────────────── */
+    h1,h2,h3,h4 { font-family: var(--ff-display); line-height: 1.2; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    h3 { font-size: 1.15rem; font-family: var(--ff-body); font-weight: 600; }
+    p  { color: var(--ink-soft); }
+    a  { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-  .content {
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 3rem 1.25rem 9rem;
-  }
+    /* ─── LAYOUT HELPERS ─────────────────────────────────────────── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .section    { padding: var(--section-gap) 0; }
+    .section--alt { background: var(--surface-2); }
+    .section--dark { background: var(--ink); color: #F7F5F1; }
+    .section--dark p { color: #BDB9B3; }
+    .label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section--dark .label { color: #7BBFA5; }
+    .divider { width: 40px; height: 2px; background: var(--accent); margin: 16px 0 32px; }
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: var(--accent-pale);
+      color: var(--accent);
+      margin: 3px;
+    }
+    .tag--warm {
+      background: #FBF0E6;
+      color: var(--accent-warm);
+    }
+    .tag--muted {
+      background: var(--surface-2);
+      color: var(--ink-muted);
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 760px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
 
-  .section { display:none;width:100%;max-width:460px;animation:fadeUp 0.4s ease both; }
-  .section.active { display:block; }
+    /* ─── CARDS ──────────────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+    .card--accent { border-left: 3px solid var(--accent); }
+    .card__icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+    .card h3 { margin-bottom: 8px; }
+    .card p { font-size: 0.9rem; }
+    .card .tags { margin-top: 14px; }
 
-  @keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+    /* ─── NAV ────────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247,245,241,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .nav-logo { font-family: var(--ff-display); font-size: 1.1rem; color: var(--ink); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--ink-soft); }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: var(--radius);
+      font-size: 0.82rem !important;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { opacity: 0.88; text-decoration: none; }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
 
-  .page-label { font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted2);margin-bottom:0.4rem;font-weight:500; }
-  .section-title { font-family:'Instrument Serif',serif;font-style:italic;font-size:2rem;font-weight:400;color:var(--text);margin-bottom:1.5rem;line-height:1.2; }
+    /* ─── HERO ───────────────────────────────────────────────────── */
+    #hero {
+      padding: 80px 0 72px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 700px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { display: none; }
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    #hero h1 { margin-bottom: 20px; max-width: 640px; }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      max-width: 560px;
+      margin-bottom: 16px;
+    }
+    .hero-note {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      margin-bottom: 36px;
+    }
+    .hero-note strong { color: var(--ink-soft); }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; text-decoration: none; }
+    .btn--primary { background: var(--accent); color: #fff; }
+    .btn--outline { border: 1.5px solid var(--line); color: var(--ink-soft); background: transparent; }
+    .hero-photo img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--line);
+    }
+    .hero-photo .photo-placeholder {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: var(--accent-pale);
+      border: 3px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
 
-  /* ME */
-  .hero { text-align:center; }
-  .avatar-ring { width:180px;height:180px;margin:0 auto 1rem;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 4px 28px rgba(0,0,0,0.08);overflow:hidden; }
-  .avatar-ring::before { content:'';position:absolute;inset:-3px;border-radius:50%;background:linear-gradient(135deg,#2dd4bf,#86efac,#6ee7b7);z-index:-1; }
-  .avatar-ring img { width:130%;height:130%;object-fit:contain;object-position:center top;display:block;margin-top:20px; }
-  .hero-name { font-family:'DM Sans',sans-serif;font-size:1.6rem;font-weight:600;letter-spacing:-0.5px;margin-bottom:0.3rem;line-height:1.3; }
-  .hero-title { font-size:0.9rem;color:var(--accent);font-weight:500;margin-bottom:0.25rem; }
-  .hero-location { font-size:0.72rem;color:var(--muted2);opacity:0.7;margin-bottom:1.6rem; }
-  .hero-bio { font-size:0.92rem;color:var(--muted);line-height:1.75;max-width:340px;margin:0 auto 1.8rem; }
-  .hero-subheadline { font-size:1rem;color:var(--text);line-height:1.5;font-weight:500;max-width:420px;margin:0 auto 1rem; }
-  .hero-actions { display:flex;flex-direction:column;align-items:center;gap:0.75rem;margin:0 auto 1rem; }
-  .hero-secondary { display:inline-flex;align-items:center;justify-content:center;padding:0.95rem 1.2rem;border-radius:999px;border:1px solid rgba(13,148,136,0.2);background:rgba(255,255,255,0.72);color:var(--text);font-weight:600;text-decoration:none;backdrop-filter:blur(10px);transition:transform 0.2s ease,border-color 0.2s ease,box-shadow 0.2s ease; }
-  .hero-secondary:hover { transform:translateY(-1px);border-color:rgba(13,148,136,0.35);box-shadow:0 10px 24px rgba(13,148,136,0.08); }
-  .hero-trust { font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted2);margin:0 auto 1.5rem; }
+    /* ─── TRUST BAR ──────────────────────────────────────────────── */
+    .trust-bar {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .trust-bar-inner {
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+      align-items: center;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+    }
+    .trust-item strong { color: var(--ink-soft); }
+    .trust-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
 
-  .pills { display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:2rem; }
-  .pill { padding:5px 13px;border-radius:100px;background:rgba(255,255,255,0.75);border:1px solid var(--card-border);font-size:0.78rem;color:var(--muted);backdrop-filter:blur(8px);font-weight:500;transition:border-color 0.2s,color 0.2s; }
-  .pill:hover { border-color:var(--teal);color:var(--accent); }
+    /* ─── ABOUT ──────────────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 60px;
+      align-items: start;
+    }
+    @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-grid h2 { margin-bottom: 8px; }
+    .about-grid p { margin-bottom: 16px; }
+    .stat-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .stat-num { font-family: var(--ff-display); font-size: 2.4rem; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 0.8rem; color: var(--ink-muted); margin-top: 4px; }
 
-  .status-badge { display:inline-flex;align-items:center;gap:6px;background:var(--teal-soft);border:1px solid rgba(45,212,191,0.25);border-radius:100px;padding:5px 14px;font-size:0.78rem;color:var(--accent);font-weight:500; }
-  .status-dot { width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s ease-in-out infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+    /* ─── SERVICES ───────────────────────────────────────────────── */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
 
-  .qa-card { display:flex;align-items:center;gap:14px;background:var(--card);backdrop-filter:blur(14px);border:1px solid rgba(45,212,191,0.25);border-radius:16px;padding:1rem 1.25rem;margin:0 auto 1.5rem;max-width:320px;text-align:left; }
-  .qa-years { font-family:'Instrument Serif',serif;font-size:2.8rem;font-weight:400;color:var(--accent);line-height:1;flex-shrink:0; }
-  .qa-text { display:flex;flex-direction:column;gap:3px; }
-  .qa-title { font-size:0.88rem;font-weight:600;color:var(--text); }
-  .qa-sub { font-size:0.76rem;color:var(--muted2); }
+    /* ─── TOOLS ──────────────────────────────────────────────────── */
+    .tools-group { margin-bottom: 36px; }
+    .tools-group h3 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 12px; }
+    .tools-tags { display: flex; flex-wrap: wrap; }
 
-  /* WORK */
-  .work-card { background:var(--card);backdrop-filter:blur(14px);border:1px solid var(--card-border);border-radius:18px;padding:1.35rem 1.4rem;margin-bottom:1rem;transition:transform 0.2s,border-color 0.2s; }
-  .work-card:hover { transform:translateY(-2px);border-color:rgba(45,212,191,0.3); }
-  .work-icon { width:40px;height:40px;border-radius:12px;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:0.9rem; }
-  .work-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.4rem;color:var(--text); }
-  .work-card p { font-size:0.84rem;color:var(--muted);line-height:1.65; }
-  .work-tag { display:inline-block;margin-top:0.75rem;font-size:0.72rem;color:var(--accent);font-weight:500;letter-spacing:0.04em; }
-  .work-problem { font-size:0.83rem;color:var(--muted);line-height:1.65;margin-bottom:0.6rem;padding-left:0.75rem;border-left:2px solid rgba(239,68,68,0.3); }
-  .work-solution { font-size:0.83rem;color:var(--muted);line-height:1.65;margin-bottom:0.6rem;padding-left:0.75rem;border-left:2px solid rgba(45,212,191,0.4); }
-  .work-example { font-size:0.78rem;color:var(--accent);background:var(--teal-soft);border-radius:8px;padding:8px 12px;margin-bottom:0.6rem;line-height:1.55;font-style:italic; }
+    /* ─── CASE STUDIES ───────────────────────────────────────────── */
+    .case-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+    }
+    .case-card__label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 8px;
+    }
+    .case-card h3 { font-family: var(--ff-display); font-size: 1.25rem; margin-bottom: 10px; }
+    .case-card p { font-size: 0.9rem; margin-bottom: 14px; }
+    .case-card__outcome {
+      background: var(--accent-pale);
+      border-radius: 4px;
+      padding: 12px 14px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .case-card .tags { margin-top: 14px; }
 
-  /* CASE STUDIES */
-  .systems-hero { background:linear-gradient(135deg,rgba(13,148,136,0.10),rgba(45,212,191,0.10));border:1px solid rgba(45,212,191,0.25);border-radius:18px;padding:1.2rem 1.25rem;margin-bottom:1rem; }
-  .systems-hero-title { font-size:1rem;font-weight:600;color:var(--text);margin-bottom:0.35rem; }
-  .systems-hero-desc { font-size:0.86rem;color:var(--muted);line-height:1.7; }
-  .case-card { background:var(--card);backdrop-filter:blur(14px);border:1px solid var(--card-border);border-radius:18px;padding:1.35rem 1.4rem;margin-bottom:1rem; }
-  .case-head { display:flex;align-items:center;gap:10px;margin-bottom:0.85rem; }
-  .case-icon { width:40px;height:40px;border-radius:12px;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0; }
-  .case-title { font-size:0.98rem;font-weight:600;color:var(--text); }
-  .case-sub { font-size:0.76rem;color:var(--muted2);margin-top:2px; }
-  .case-block { margin-bottom:0.8rem; }
-  .case-label { display:block;font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted2);margin-bottom:0.32rem; }
-  .case-text { font-size:0.84rem;color:var(--muted);line-height:1.7; }
-  .case-list { list-style:none;display:grid;gap:8px;margin-top:0.1rem; }
-  .case-list li { font-size:0.83rem;color:var(--muted);line-height:1.6;padding-left:14px;position:relative; }
-  .case-list li::before { content:'•';color:var(--accent);position:absolute;left:0;top:0; }
-  .case-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:0.7rem; }
-  .case-tag { font-size:0.72rem;font-weight:500;color:var(--accent);background:var(--teal-soft);border-radius:999px;padding:4px 10px; }
+    /* ─── TESTIMONIALS ───────────────────────────────────────────── */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+    .testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: var(--ff-display);
+      font-size: 4rem;
+      color: var(--accent-pale);
+      position: absolute;
+      top: 10px; left: 18px;
+      line-height: 1;
+    }
+    .testimonial-card p {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-author { font-size: 0.82rem; font-weight: 600; color: var(--ink); }
+    .testimonial-role { font-size: 0.78rem; color: var(--ink-muted); }
 
-  /* SKILLS */
-  .skill-card { display:flex;gap:14px;background:var(--card);backdrop-filter:blur(14px);border:1px solid var(--card-border);border-radius:18px;padding:1.25rem 1.4rem;margin-bottom:10px;transition:transform 0.2s,border-color 0.2s; }
-  .skill-card:hover { transform:translateY(-2px);border-color:rgba(45,212,191,0.3); }
-  .skill-card-icon { font-size:1.4rem;width:44px;height:44px;border-radius:12px;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0; }
-  .skill-card-body { flex:1; }
-  .skill-card-title { font-size:0.92rem;font-weight:600;color:var(--text);margin-bottom:0.4rem; }
-  .skill-card-desc { font-size:0.82rem;color:var(--muted);line-height:1.65;margin-bottom:0.6rem; }
-  .skill-card-tag { display:inline-block;font-size:0.7rem;font-weight:600;color:var(--accent);background:var(--teal-soft);padding:3px 10px;border-radius:100px;letter-spacing:0.03em; }
+    /* ─── APPROACH STRIP ─────────────────────────────────────────── */
+    .approach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
+    .approach-item { padding: 24px 0; border-top: 2px solid var(--accent); }
+    .approach-item .icon { font-size: 1.4rem; margin-bottom: 10px; }
+    .approach-item h3 { margin-bottom: 6px; font-size: 1rem; }
+    .section--dark .approach-item { border-color: #2E5D4B; }
+    .section--dark .approach-item h3 { color: #F7F5F1; }
 
-  /* CLIENTS */
-  .client-intro { background:var(--card);backdrop-filter:blur(14px);border:1px solid var(--card-border);border-radius:18px;padding:1.4rem;margin-bottom:1rem;font-size:0.9rem;color:var(--muted);line-height:1.7; }
-  .client-intro strong { color:var(--text);font-weight:600; }
-  .signal-list { list-style:none;margin-bottom:1rem; }
-  .signal-list li { display:flex;align-items:flex-start;gap:10px;padding:0.75rem 1rem;background:var(--card);backdrop-filter:blur(14px);border:1px solid var(--card-border);border-radius:12px;margin-bottom:8px;font-size:0.85rem;color:var(--muted);line-height:1.5; }
-  .signal-list li::before { content:'→';color:var(--teal);font-weight:600;flex-shrink:0;margin-top:1px; }
-  .fit-label { font-size:0.78rem;font-weight:600;color:var(--accent);text-align:center;padding:0.6rem;background:var(--teal-soft);border-radius:10px;letter-spacing:0.04em; }
+    /* ─── CONTACT ────────────────────────────────────────────────── */
+    .contact-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 60px; align-items: start; }
+    @media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+    .form-field { display: flex; flex-direction: column; gap: 5px; }
+    .form-field label { font-size: 0.8rem; font-weight: 600; color: var(--ink-soft); }
+    .form-field input, .form-field textarea, .form-field select {
+      padding: 10px 14px;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius);
+      font-family: var(--ff-body);
+      font-size: 0.9rem;
+      background: var(--surface);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+      border-color: var(--accent);
+    }
+    .form-field textarea { resize: vertical; min-height: 110px; }
+    .contact-info { padding-top: 8px; }
+    .contact-info h3 { margin-bottom: 16px; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+    }
+    .contact-link:last-child { border-bottom: none; }
+    .contact-link span.ci { width: 28px; text-align: center; }
 
-  /* TESTIMONIALS */
-  .testi-card { background:var(--card);backdrop-filter:blur(14px);border:1px solid var(--card-border);border-radius:18px;padding:1.4rem;margin-bottom:1rem;position:relative; }
-  .testi-quote { font-family:'Instrument Serif',serif;font-size:3.5rem;color:var(--teal);line-height:0.5;margin-bottom:0.75rem;opacity:0.6; }
-  .testi-text { font-size:0.88rem;color:var(--muted);line-height:1.75;margin-bottom:1rem;font-style:italic; }
-  .testi-author { display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--card-border);padding-top:0.75rem; }
-  .testi-name { font-size:0.88rem;font-weight:600;color:var(--text); }
-  .testi-role { font-size:0.75rem;color:var(--muted2); }
+    /* ─── FOOTER ─────────────────────────────────────────────────── */
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-inner p { font-size: 0.8rem; color: var(--ink-muted); }
 
-  /* PILL GROUPS */
-  .pill-groups { display:flex;flex-direction:column;gap:12px;margin-bottom:1.5rem;text-align:left; }
-  .pill-group-label { display:block;font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:6px; }
-  .pill-group-desc { font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:10px;max-width:340px; }
-
-  /* HOW I THINK */
-  .think-intro { font-size:1rem;font-weight:500;color:var(--text);text-align:center;padding:1rem;margin-bottom:1.25rem;border-left:3px solid var(--teal);background:var(--teal-soft);border-radius:0 12px 12px 0;line-height:1.6; }
-  .think-card { display:flex;gap:14px;background:var(--card);backdrop-filter:blur(14px);border:1px solid var(--card-border);border-radius:18px;padding:1.25rem 1.4rem;margin-bottom:10px;transition:transform 0.2s,border-color 0.2s; }
-  .think-card:hover { transform:translateY(-2px);border-color:rgba(45,212,191,0.3); }
-  .think-icon { font-size:1.4rem;width:44px;height:44px;border-radius:12px;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0; }
-  .think-body { flex:1; }
-  .think-title { font-size:0.92rem;font-weight:600;color:var(--text);margin-bottom:4px; }
-  .think-desc { font-size:0.82rem;color:var(--muted);line-height:1.65; }
-  .think-quote { font-family:'Instrument Serif',serif;font-style:italic;font-size:1.1rem;color:var(--accent);text-align:center;padding:1.25rem;margin-top:0.5rem;border-top:1px solid var(--card-border); }
-
-  /* PROOF BLOCKS */
-  .proof-block { background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:0.85rem 1rem;display:flex;gap:10px;align-items:flex-start;margin-bottom:8px; }
-  .proof-arrow { color:var(--teal);font-size:1rem;flex-shrink:0; }
-  .proof-text { font-size:0.83rem;color:var(--muted);line-height:1.55; }
-
-  /* CONTACT */
-  .contact-list { display:flex;flex-direction:column;gap:10px; }
-  .contact-item { display:flex;align-items:center;gap:14px;background:var(--card);backdrop-filter:blur(14px);border:1px solid var(--card-border);border-radius:14px;padding:1rem 1.25rem;text-decoration:none;color:inherit;transition:transform 0.18s,border-color 0.18s;cursor:pointer; }
-  .contact-item:hover { transform:translateX(4px);border-color:rgba(45,212,191,0.35); }
-  .contact-icon-wrap { width:40px;height:40px;border-radius:11px;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0; }
-  .contact-label { font-size:0.75rem;color:var(--muted2);margin-bottom:2px; }
-  .contact-value { font-size:0.9rem;font-weight:500;color:var(--text); }
-  .contact-arrow { margin-left:auto;color:var(--muted2);font-size:0.9rem; }
-  .contact-form-wrap { background:var(--card);backdrop-filter:blur(14px);border:1px solid var(--card-border);border-radius:18px;padding:1.4rem;margin-bottom:1rem; }
-  .form-group { margin-bottom:1rem; }
-  .form-label { display:block;font-size:0.78rem;font-weight:500;color:var(--muted);margin-bottom:6px; }
-  .form-input { width:100%;padding:10px 14px;border:1px solid var(--card-border);border-radius:10px;background:rgba(255,255,255,0.8);font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--text);outline:none;transition:border-color 0.2s; }
-  .form-input:focus { border-color:var(--teal); }
-  .form-input::placeholder { color:var(--muted2); }
-  .form-textarea { resize:vertical;min-height:100px; }
-  .form-submit { width:100%;padding:12px;background:var(--accent);color:white;border:none;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:600;cursor:pointer;transition:opacity 0.2s,transform 0.15s; }
-  .form-submit:hover { opacity:0.88;transform:translateY(-1px); }
-  .form-submit:active { transform:scale(0.98); }
-  .form-success { text-align:center;padding:1.5rem 1rem; }
-  .success-icon { font-size:2rem;display:block;margin-bottom:0.5rem; }
-  .form-success p { font-size:0.9rem;color:var(--accent);font-weight:500; }
-  .contact-note { margin-top:1.25rem;font-size:0.82rem;color:var(--muted2);text-align:center;line-height:1.6; }
-  .calendly-cta { display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;background:linear-gradient(135deg,rgba(45,212,191,0.15),rgba(134,239,172,0.15));border:1px solid rgba(45,212,191,0.3);border-radius:18px;padding:1.25rem 1.4rem;margin-bottom:1rem; }
-  .calendly-text { display:flex;flex-direction:column;gap:3px; }
-  .calendly-title { font-size:0.95rem;font-weight:600;color:var(--text); }
-  .calendly-sub { font-size:0.78rem;color:var(--muted); }
-  .calendly-btn { display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:white;border:none;border-radius:100px;padding:10px 18px;font-size:0.82rem;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none;white-space:nowrap;transition:opacity 0.2s,transform 0.15s;flex-shrink:0;margin-left:0; }
-  .calendly-btn:hover { opacity:0.88;transform:translateY(-1px); }
-  .contact-divider { text-align:center;font-size:0.75rem;color:var(--muted2);margin:1rem 0;position:relative; }
-  .contact-divider::before,.contact-divider::after { content:'';position:absolute;top:50%;width:35%;height:1px;background:var(--card-border); }
-  .contact-divider::before { left:0; }
-  .contact-divider::after { right:0; }
-
-  /* BOTTOM NAV */
-  .bottom-nav { position:fixed;bottom:0;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:0 1rem 1.4rem; }
-  .nav-pill { display:flex;gap:2px;background:var(--nav-bg);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(0,0,0,0.08);border-radius:22px;padding:6px;box-shadow:0 8px 32px rgba(0,0,0,0.1),0 1px 0 rgba(255,255,255,0.9) inset;flex-wrap:wrap;justify-content:center;max-width:480px; }
-  .nav-btn { display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 10px;border-radius:16px;border:none;background:transparent;cursor:pointer;transition:background 0.2s;font-family:'DM Sans',sans-serif;-webkit-tap-highlight-color:transparent; }
-  .nav-btn:hover { background:rgba(45,212,191,0.08); }
-  .nav-btn.active { background:rgba(45,212,191,0.14); }
-  .nav-ico { font-size:1.05rem;line-height:1; }
-  .nav-lbl { font-size:0.62rem;font-weight:500;color:var(--muted2);letter-spacing:0.02em; }
-  .nav-btn.active .nav-lbl { color:var(--accent); }
-</style>
+    /* ─── ANIMATIONS ─────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.55s ease both; }
+    .fade-up-1 { animation-delay: 0.05s; }
+    .fade-up-2 { animation-delay: 0.15s; }
+    .fade-up-3 { animation-delay: 0.25s; }
+    .fade-up-4 { animation-delay: 0.35s; }
+  </style>
 </head>
 <body>
 
-<div class="mesh">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
-  <div class="blob blob-4"></div>
-</div>
+<!-- ─── NAV ────────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Audrey Guevarra</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#testimonials">Clients</a></li>
+      <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+  </div>
+</nav>
 
-<div class="portfolio">
-  <div class="content">
-
-    <!-- ── ME ── -->
-    <div class="section active" id="sec-me">
-      <div class="hero">
-        <div class="avatar-ring"><img src="audrey.png" alt="Audrey Guevarra" /></div>
-
-        <h1 class="hero-name">I build and stabilize backend automation systems so leads, customers, and operations don't fall through the cracks.</h1>
-        <p class="hero-title">Backend Automation &amp; CRM Systems Specialist</p>
-        <p class="hero-location">&#128205; Philippines</p>
-        <p class="hero-subheadline">I audit, clean, and stabilize CRM and automation workflows across GoHighLevel, ConvertKit, ManyChat, Zapier, Airtable, and AI-assisted systems — so the backend runs without constant manual oversight.</p>
-        <p class="hero-bio">
-          I build automation pipelines, not isolated workflows. I structure connected systems that handle lead routing, lifecycle tracking, follow-up sequences, and operations — and I make sure they stay running.
-          <br><br>
-          14+ years in operations and QA. I catch the failure points before they become expensive problems.
+<!-- ─── HERO ────────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow fade-up">Backend Operations &amp; Automation Support Specialist</p>
+        <h1 class="fade-up fade-up-1">I audit, clean up, and stabilize backend systems so leads, customers, and operations don't fall through the cracks.</h1>
+        <p class="hero-sub fade-up fade-up-2">
+          CRM cleanup, workflow QA, automation troubleshooting, lifecycle system audits, SOP documentation, and email deliverability support — for teams that can't afford silent failures in the backend.
         </p>
-
-        <div class="hero-actions">
-          <a class="calendly-btn" href="https://calendly.com/yourvaaudrey/30min" target="_blank">Book a Systems Call</a>
-          <a class="hero-secondary" href="#" onclick="openSection('systems'); return false;">View Case Studies</a>
-        </div>
-
-        <div class="hero-trust">Automation Builds &bull; CRM Systems &bull; Backend Ops &bull; AI Workflows &bull; QA &amp; Reliability</div>
-
-        <div class="qa-card">
-          <div class="qa-years">14+</div>
-          <div class="qa-text">
-            <span class="qa-title">Years in QA &amp; Operations</span>
-            <span class="qa-sub">Trained to catch the inconsistencies most teams miss</span>
-          </div>
-        </div>
-
-        <!-- Proof of thinking blocks -->
-        <div style="margin-bottom:1.5rem;text-align:left;">
-          <div class="proof-block"><span class="proof-arrow">→</span><span class="proof-text">I trace workflows from trigger to final action — not just the step that's visibly broken.</span></div>
-          <div class="proof-block"><span class="proof-arrow">→</span><span class="proof-text">I clean up tags so user states stay accurate and automation logic fires on the right people.</span></div>
-          <div class="proof-block"><span class="proof-arrow">→</span><span class="proof-text">I identify silent failure points before launches — expired tokens, disconnected APIs, duplicate workflows.</span></div>
-          <div class="proof-block"><span class="proof-arrow">→</span><span class="proof-text">I document systems so they stay maintainable — by the next person, not just the one who built it.</span></div>
-        </div>
-
-        <div class="pill-groups">
-          <div class="pill-group">
-            <span class="pill-group-label">CRM &amp; Lifecycle Systems</span>
-            <p class="pill-group-desc">Tag logic, stage tracking, segmentation, and routing so the CRM reflects how leads actually move.</p>
-            <div class="pills">
-              <span class="pill">GoHighLevel</span><span class="pill">Zoho CRM</span><span class="pill">ConvertKit / Kit</span><span class="pill">Airtable</span><span class="pill">ManyChat</span><span class="pill">Skool</span><span class="pill">Wix</span>
-            </div>
-          </div>
-          <div class="pill-group">
-            <span class="pill-group-label">Automation &amp; Integrations</span>
-            <p class="pill-group-desc">Connected workflows across tools — triggers, handoffs, data sync, and multi-step pipelines.</p>
-            <div class="pills">
-              <span class="pill">Zapier</span><span class="pill">Make.com</span><span class="pill">Node.js</span><span class="pill">PowerShell</span><span class="pill">Google Apps Script</span><span class="pill">Windows Task Scheduler</span><span class="pill">Slack</span><span class="pill">ClickUp</span>
-            </div>
-          </div>
-          <div class="pill-group">
-            <span class="pill-group-label">AI-Assisted Workflows</span>
-            <p class="pill-group-desc">AI as an operational step — classifying, routing, and supporting decisions inside structured pipelines.</p>
-            <div class="pills">
-              <span class="pill">Claude API</span><span class="pill">OpenAI API</span><span class="pill">Codex</span><span class="pill">Gemini</span><span class="pill">Perplexity</span>
-            </div>
-          </div>
-          <div class="pill-group">
-            <span class="pill-group-label">System Audits &amp; Documentation</span>
-            <p class="pill-group-desc">Finding what's redundant, broken, or undocumented — and making the system maintainable.</p>
-            <div class="pills">
-              <span class="pill">Workflow Mapping</span><span class="pill">SOP Writing</span><span class="pill">Process Cleanup</span><span class="pill">Handoff Docs</span>
-            </div>
-          </div>
-          <div class="pill-group">
-            <span class="pill-group-label">QA &amp; Reliability</span>
-            <p class="pill-group-desc">Pre-launch testing, failure point identification, retry logic, and monitoring so systems stay stable.</p>
-            <div class="pills">
-              <span class="pill">QA Testing</span><span class="pill">Error Detection</span><span class="pill">OAuth Token Management</span><span class="pill">Watchdog Scripts</span><span class="pill">Launch QA</span>
-            </div>
-          </div>
-          <div class="pill-group">
-            <span class="pill-group-label">Email &amp; Deliverability</span>
-            <div class="pills">
-              <span class="pill">Gmail OAuth</span><span class="pill">ConvertKit</span><span class="pill">Beehiiv</span><span class="pill">Instantly</span><span class="pill">NeverBounce</span><span class="pill">Suppression Logic</span>
-            </div>
-          </div>
+        <p class="hero-note fade-up fade-up-3">
+          📍 Philippines &nbsp;·&nbsp;
+          <strong>14 years</strong> in operations &amp; QA &nbsp;·&nbsp;
+          Available for remote contract &amp; freelance roles
+        </p>
+        <div class="hero-actions fade-up fade-up-4">
+          <a href="https://calendly.com/yourvaaudrey/30min" class="btn btn--primary" target="_blank" rel="noopener">Book a Systems Call</a>
+          <a href="#work" class="btn btn--outline">See My Work</a>
         </div>
       </div>
-    </div>
-
-    <!-- ── HOW I THINK ── -->
-    <div class="section" id="sec-think">
-      <p class="page-label">Approach</p>
-      <h2 class="section-title">How I fix<br>hidden breakdowns</h2>
-      <div class="think-intro">I map the full system before I touch a single trigger, field, or automation. That is how I find the quiet failures that create expensive problems later.</div>
-      <div class="think-card"><div class="think-icon">&#128506;</div><div class="think-body"><h3 class="think-title">Map before touching</h3><p class="think-desc">I trace the real flow first - data entry, tagging, routing, automations, reporting, and handoffs. That prevents surface-level fixes that break somewhere else.</p></div></div>
-      <div class="think-card"><div class="think-icon">&#128300;</div><div class="think-body"><h3 class="think-title">Root cause, not symptoms</h3><p class="think-desc">Missed leads, wrong tags, and unreliable reports are rarely isolated issues. I find the logic problem underneath so the fix actually holds.</p></div></div>
-      <div class="think-card"><div class="think-icon">&#128208;</div><div class="think-body"><h3 class="think-title">Reliability over appearance</h3><p class="think-desc">A system can look clean and still fail quietly behind the scenes. I build for dependable behavior, visible logic, and data you can trust.</p></div></div>
-      <div class="think-card"><div class="think-icon">&#9989;</div><div class="think-body"><h3 class="think-title">QA mindset as the differentiator</h3><p class="think-desc">My QA background is what makes this work different. I am trained to catch inconsistencies early, test edge cases, and document systems so teams can run them confidently.</p></div></div>
-      <div class="think-quote">"Reliable systems come from tracing what fails before it becomes expensive."</div>
-    </div>
-
-    <!-- WORK -->
-    <div class="section" id="sec-work">
-      <p class="page-label">How I Help</p>
-      <h2 class="section-title">What I fix</h2>
-      <div class="work-card"><div class="work-icon">&#128450;</div><h3>CRM Audit &amp; Cleanup</h3><p class="work-problem">Your CRM looks organized until you try to trust it. Tags drift, records duplicate, stages no longer reflect reality, and segmentation stops being useful.</p><p class="work-solution">I audit the underlying structure, clean the data logic, tighten segmentation, and rebuild the CRM so the pipeline matches how leads actually move.</p><span class="work-tag">GoHighLevel &middot; Zoho CRM &middot; Airtable &middot; ConvertKit</span></div>
-      <div class="work-card"><div class="work-icon">&#128269;</div><h3>Automation Troubleshooting &amp; Workflow Fixes</h3><p class="work-problem">Your automations technically run, but the wrong email fires, a trigger gets missed, or a handoff quietly fails and nobody notices until revenue or follow-up suffers.</p><p class="work-solution">I trace the trigger-to-outcome logic, isolate the break point, and rebuild the workflow so it stays reliable instead of breaking again two weeks later.</p><span class="work-tag">Zapier &middot; Make.com &middot; Kit &middot; Beehiiv &middot; ManyChat</span></div>
-      <div class="work-card"><div class="work-icon">&#128260;</div><h3>Lead Routing, Lifecycle &amp; Pipeline Systems</h3><p class="work-problem">Leads enter the business, but routing is inconsistent, stages are unclear, and lifecycle logic does not keep pace with what actually happens next.</p><p class="work-solution">I build clean lead flow, stage tracking, lifecycle automation, and routing logic so the right person, task, or sequence fires at the right time.</p><span class="work-tag">Airtable &middot; ClickUp &middot; Gmail &middot; Kit &middot; Skool</span></div>
-      <div class="work-card"><div class="work-icon">&#128203;</div><h3>SOPs &amp; Operational Documentation</h3><p class="work-problem">The backend only works because one person knows the unwritten rules. When they step away, execution slows down and mistakes multiply.</p><p class="work-solution">I document workflows clearly, including conditions, exceptions, ownership, and handoffs, so the team can run the system without constant supervision.</p><span class="work-tag">SOP Design &middot; Process Clarity &middot; Team Handoffs &middot; Operational Consistency</span></div>
-      <div class="work-card"><div class="work-icon">&#129302;</div><h3>AI-Powered Workflow Integration</h3><p class="work-problem">AI is useful, but it often remains a tool someone has to manually open. It is not yet part of the actual operational system.</p><p class="work-solution">I position AI as a working step inside the workflow - reading inputs, classifying replies, routing outcomes, and supporting decisions inside a structured system.</p><div class="work-example">Built a hiring pipeline where Claude read each incoming application, sent a personalized reply within minutes of receipt, and routed data to Airtable, ClickUp, and Kit via API. Response time: 2 days &rarr; under 5 minutes.</div><span class="work-tag">Claude API &middot; OpenAI API &middot; Gmail &middot; Airtable &middot; ClickUp &middot; Kit</span></div>
-    </div>
-
-    <!-- SYSTEMS CASE STUDY -->
-    <div class="section" id="sec-systems">
-      <p class="page-label">Proof of work</p>
-      <h2 class="section-title">Case studies</h2>
-      <div class="systems-hero"><div class="systems-hero-title">Hidden system gaps, traced and fixed.</div><div class="systems-hero-desc">These are examples of how I fix hidden breakdowns in workflows, routing, follow-up, and reporting systems - improving reliability, visibility, and reducing manual work.</div></div>
-
-      <div class="case-card">
-        <div class="case-head"><div class="case-icon">&#128231;</div><div><div class="case-title">Outbound Email System: Instantly + NeverBounce + QA Pipeline</div><div class="case-sub">Lead cleaning, email verification, suppression logic, and Instantly upload readiness</div></div></div>
-        <div class="case-block"><span class="case-label">Problem</span><p class="case-text">Leads were coming from different sources and needed a clean, reliable process before being uploaded into Instantly. Risks included duplicate outreach, invalid emails, and poor deliverability.</p></div>
-        <div class="case-block"><span class="case-label">Key logic</span><ul class="case-list"><li>Google Sheets acted as the control layer while Zoho CRM remained storage only</li><li>One contact per row, one email per cell, and no duplicate outreach</li><li>Generic emails removed before verification</li><li>Only VALID emails moved forward into the outbound queue</li><li>Master Suppression List served as the single source of truth</li><li>Status flow moved from Verified to Queued to Sent</li></ul></div>
-        <div class="case-block"><span class="case-label">Outcome</span><p class="case-text">Eliminated duplicate outreach and invalid sends before they reached inboxes. The pipeline became fully trackable from lead source to Instantly upload, with suppression logic that held across future batches.</p></div>
-        <div class="case-tags"><span class="case-tag">Instantly</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">NeverBounce</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Google Sheets</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Zoho CRM</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">QA Pipeline</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Suppression Logic</span></div>
-      </div>
-
-      <div class="case-card">
-        <div class="case-head"><div class="case-icon">&#128295;</div><div><div class="case-title">GoHighLevel CRM Audit &amp; Workflow Structuring</div><div class="case-sub">CRM audit, workflow mapping, funnel review, and safe change planning</div></div></div>
-        <div class="case-block"><span class="case-label">Problem</span><p class="case-text">Existing GHL system had automations and funnels but lacked clarity, structure, and visibility. Risk of breaking workflows without proper audit.</p></div>
-        <div class="case-block"><span class="case-label">Approach</span><ul class="case-list"><li>Audited full GHL structure</li><li>Mapped workflows and automations</li><li>Reviewed funnels and membership setup</li><li>Identified system gaps before changes</li></ul></div>
-        <div class="case-block"><span class="case-label">Outcome</span><p class="case-text">Identified structural gaps before any changes were made — preventing automation breaks during rollout. The system was ready for reliable improvements with full visibility into what existed and what needed to change.</p></div>
-        <div class="case-tags"><span class="case-tag">GoHighLevel</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">CRM Audit</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Workflow Mapping</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Automation QA</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Funnel Review</span></div>
-      </div>
-
-      <div class="case-card">
-        <div class="case-head"><div class="case-icon">&#129513;</div><div><div class="case-title">Hiring Pipeline Automation</div><div class="case-sub">Intake, routing, and data sync across email, Airtable, ClickUp, and Kit</div></div></div>
-        <div class="case-block"><span class="case-label">Problem</span><p class="case-text">Applications landed in a shared inbox, then waited for someone to read, reply, and manually copy the data into the next tools. Response time averaged two days and tracking was inconsistent.</p></div>
-        <div class="case-block"><span class="case-label">What I built</span><ul class="case-list"><li>A Node.js bot that checks the hiring inbox every 5 minutes, detects new applications, and sends a personalized reply within minutes of receipt</li><li>Automatic Gmail thread labeling after reply so duplicate sends do not happen</li><li>Applicant logging to CSV plus Airtable record creation for clean intake visibility</li><li>A PowerShell handoff that creates ClickUp tasks and Kit subscriptions, then writes the returned IDs back to Airtable to keep the system in sync</li></ul></div>
-        <div class="case-block"><span class="case-label">Result</span><p class="case-text">Response time dropped from two days to under five minutes. No applicant was missed or left unlogged. Data moved across the full stack automatically — no manual copy-paste, no gaps in the record.</p></div>
-        <div class="case-tags"><span class="case-tag">Node.js</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">PowerShell</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Gmail OAuth</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Airtable</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">ClickUp</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Kit</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Windows Task Scheduler</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Codex</span></div>
-      </div>
-
-      <div class="case-card">
-        <div class="case-head"><div class="case-icon">&#128236;</div><div><div class="case-title">AI-Powered Follow-Up System</div><div class="case-sub">Stage-based outreach with AI reply classification</div></div></div>
-        <div class="case-block"><span class="case-label">Problem</span><p class="case-text">Applicants were getting invited into the community funnel, but some never joined and others joined without progressing. There was no dependable follow-up system or clear stage visibility.</p></div>
-        <div class="case-block"><span class="case-label">What I built</span><ul class="case-list"><li>A Follow-Up Bot that reads the Airtable pipeline, checks stage and last contact date, and sends the right nudge or check-in automatically</li><li>A Stage Checker that detects transitions across the funnel and updates Airtable when a contact moves forward</li><li>An AI interpreter that reads incoming Gmail replies, uses Claude to classify intent, and writes structured status back to Airtable so follow-up stays accurate</li></ul></div>
-        <div class="case-block"><span class="case-label">Result</span><p class="case-text">Follow-ups triggered consistently without manual checking. No applicant fell through silently. The system maintained a reliable view of who needed a nudge, a response, or no action — without anyone managing it by hand.</p></div>
-        <div class="case-tags"><span class="case-tag">Node.js</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Gmail OAuth</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Airtable</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Claude API</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Windows Task Scheduler</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Codex</span></div>
-      </div>
-
-      <div class="case-card">
-        <div class="case-head"><div class="case-icon">&#128202;</div><div><div class="case-title">Graduate Accountability Tracking</div><div class="case-sub">Daily submission tracking, nudges, and summary reporting</div></div></div>
-        <div class="case-block"><span class="case-label">Problem</span><p class="case-text">Graduates were expected to submit daily accountability reports, but there was no reliable system for checking submissions, flagging missing reports, or giving the team visibility into who needed follow-up.</p></div>
-        <div class="case-block"><span class="case-label">What I built</span><ul class="case-list"><li>A Form Sync process that pulls Google Form submissions from Sheets, deduplicates them, and writes structured records into Airtable</li><li>An Accountability Checker that flags missing submissions, sends nudges, updates priority fields, and generates a daily operational summary</li></ul></div>
-        <div class="case-block"><span class="case-label">Result</span><p class="case-text">Silent drop-off became fully visible. The team stopped checking manually. Every day, the system produced a clear view of who submitted, who missed, and who needed follow-up — without anyone pulling the data themselves.</p></div>
-        <div class="case-tags"><span class="case-tag">Node.js</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Google Sheets API</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Gmail OAuth</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Airtable</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Windows Task Scheduler</span><span style="color:var(--muted2);font-size:0.72rem;"> · </span><span class="case-tag">Codex</span></div>
+      <div class="hero-photo fade-up fade-up-2">
+        <img src="audrey.png" alt="Audrey Guevarra" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>👩🏻‍💻</div>'" />
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- SYSTEM ARCHITECTURE -->
-    <div class="section" id="sec-architecture">
-      <p class="page-label">How it fits together</p>
-      <h2 class="section-title">Connected systems,<br>not isolated Zaps</h2>
-      <div class="systems-hero"><div class="systems-hero-title">I don't just build one automation. I structure the backend.</div><div class="systems-hero-desc">Most automation work stops at the individual workflow. I look at how every piece connects — data in, logic applied, output to the next tool — so the whole system behaves reliably, not just the parts someone is currently watching.<br><br>For example: a lead can move from a form into a CRM, trigger a personalized email sequence, create an internal task, get classified by an AI reply analyzer, and have its status updated across systems — without anyone touching it manually.</div></div>
-      <div class="think-card"><div class="think-icon">&#128231;</div><div class="think-body"><h3 class="think-title">Email &amp; Inbox</h3><p class="think-desc">Gmail via OAuth — monitored, labeled, and connected to downstream logic. Replies analyzed, threads deduplicated, actions logged.</p></div></div>
-      <div class="think-card"><div class="think-icon">&#128450;</div><div class="think-body"><h3 class="think-title">CRM &amp; Data Layer</h3><p class="think-desc">Airtable, GoHighLevel, Zoho CRM — structured records, clean stage fields, tag logic that stays accurate as contacts move through the funnel.</p></div></div>
-      <div class="think-card"><div class="think-icon">&#9989;</div><div class="think-body"><h3 class="think-title">Task &amp; Project Layer</h3><p class="think-desc">ClickUp — tasks created automatically when records qualify, IDs written back to the CRM so both systems stay in sync without manual entry.</p></div></div>
-      <div class="think-card"><div class="think-icon">&#128140;</div><div class="think-body"><h3 class="think-title">Email Platform Layer</h3><p class="think-desc">Kit / ConvertKit, Beehiiv — subscribers added via API, tags applied by stage, sequences triggered by behavior, status written back to the source record.</p></div></div>
-      <div class="think-card"><div class="think-icon">&#129302;</div><div class="think-body"><h3 class="think-title">AI Layer</h3><p class="think-desc">Claude API — reads incoming replies, classifies intent, writes structured user state back to the CRM. The follow-up system reads this output to decide the next action.</p></div></div>
-      <div class="think-card"><div class="think-icon">&#128196;</div><div class="think-body"><h3 class="think-title">Forms &amp; Data Collection</h3><p class="think-desc">Google Sheets / Forms — submissions pulled via API, deduplicated, and pushed into the CRM. One source of truth, no manual copy-paste.</p></div></div>
-      <div class="think-quote">"Every tool should know what the others are doing. That is what makes the system reliable."</div>
-    </div>
-
-    <!-- RISKS & BREAKPOINTS -->
-    <div class="section" id="sec-risks">
-      <p class="page-label">What I watch for</p>
-      <h2 class="section-title">Failure points I find<br>before they cost you</h2>
-      <div class="systems-hero"><div class="systems-hero-title">These are common failure points when systems aren't structured properly.</div><div class="systems-hero-desc">Most automation issues are not obvious until something downstream stops working. I identify these structural gaps during builds and audits — before they affect leads, follow-up, or revenue.</div></div>
-      <div class="work-card"><div class="work-icon">&#128274;</div><h3>Expired OAuth Tokens</h3><p class="work-problem">The scheduler shows the task as running, but emails stop going out. No visible error. This is one of the most common points where automations quietly stop working without anyone noticing.</p><p class="work-solution">I document token expiry risk per integration, set up monitoring, and ensure token refresh logic is in place — or flag it as a manual renewal point before it silently breaks.</p></div>
-      <div class="work-card"><div class="work-icon">&#128257;</div><h3>Redundant Legacy Scripts</h3><p class="work-problem">An old automation still runs alongside the new one. Both fire, creating duplicates or conflicting records. Neither one is clearly the source of truth.</p><p class="work-solution">I audit what is actually running, identify overlaps, and disable or consolidate so the active system is the only one touching the data.</p></div>
-      <div class="work-card"><div class="work-icon">&#9888;</div><h3>Silent Automation Failures</h3><p class="work-problem">The task runs on schedule and logs show success — but the API returned an error that was swallowed. No record was created. This is the kind of gap that only shows up when someone notices missing data downstream.</p><p class="work-solution">I build in status flags, failed-record tracking, and logging so failures surface in the data instead of disappearing silently.</p></div>
-      <div class="work-card"><div class="work-icon">&#127991;</div><h3>Tag Drift &amp; Missing Tags</h3><p class="work-problem">Tags were added when the system was built but were never cleaned up. Contacts have old tags, conflicting tags, or no tags — so segmentation and automation logic no longer triggers correctly.</p><p class="work-solution">I audit tag structure, standardize naming, remove stale tags, and rebuild the logic so user state is accurate and automations fire on the right people.</p></div>
-      <div class="work-card"><div class="work-icon">&#128268;</div><h3>Disconnected APIs &amp; Broken Triggers</h3><p class="work-problem">A token rotated. A webhook URL changed. A field name was updated in one tool but not the other. The automation breaks and nobody knows why.</p><p class="work-solution">I map all integration dependencies before changes, document what breaks what, and test end-to-end after any update to confirm the system still behaves correctly.</p></div>
-    </div>
-
-    <!-- AUDIT & CLEANUP -->
-    <div class="section" id="sec-audit">
-      <p class="page-label">Cleanup work</p>
-      <h2 class="section-title">Auditing systems that<br>grew faster than their logic</h2>
-      <div class="think-intro">Systems often start with overlapping workflows, inconsistent tagging, and logic nobody fully documented. I clean this up so each automation has a clear role, the data reflects the actual user state, and the next person who touches it understands exactly how it works.</div>
-      <div class="skill-card"><div class="skill-card-icon">&#128269;</div><div class="skill-card-body"><h3 class="skill-card-title">Finding Redundant Automations</h3><p class="skill-card-desc">I identify what is running that no longer needs to run — old scripts, legacy zaps, duplicate syncs — and remove the overlap so the active system is the only one touching the data.</p><span class="skill-card-tag">Automation Audit</span></div></div>
-      <div class="skill-card"><div class="skill-card-icon">&#127991;</div><div class="skill-card-body"><h3 class="skill-card-title">Cleaning Tags &amp; Standardizing User States</h3><p class="skill-card-desc">Tags accumulate over time. I audit the full tag structure, remove what is stale or conflicting, and standardize naming so segmentation and automation logic works again.</p><span class="skill-card-tag">CRM Cleanup</span></div></div>
-      <div class="skill-card"><div class="skill-card-icon">&#128257;</div><div class="skill-card-body"><h3 class="skill-card-title">Simplifying Workflow Logic</h3><p class="skill-card-desc">Workflows that were patched repeatedly become hard to follow and harder to trust. I map the actual logic, cut the unnecessary steps, and rebuild it so the flow is clear and maintainable.</p><span class="skill-card-tag">Workflow Restructure</span></div></div>
-      <div class="skill-card"><div class="skill-card-icon">&#128203;</div><div class="skill-card-body"><h3 class="skill-card-title">Documenting What Was Never Written Down</h3><p class="skill-card-desc">After cleanup, I document the system so the next person who touches it understands what it does, how it connects, and what to watch for — without needing to reverse-engineer it.</p><span class="skill-card-tag">SOP &amp; Handoff Docs</span></div></div>
-    </div>
-
-    <!-- MONITORING & RELIABILITY -->
-    <div class="section" id="sec-monitoring">
-      <p class="page-label">After the build</p>
-      <h2 class="section-title">Systems I build<br>keep running</h2>
-      <div class="systems-hero"><div class="systems-hero-title">Building is the easy part. Keeping it running is the work.</div><div class="systems-hero-desc">I don't hand off automations and disappear. I build monitoring, retry logic, failure tracking, and documentation into the system so it stays stable without someone watching it constantly.<br><br>This prevents silent failures that usually go unnoticed until they affect leads, follow-up sequences, or revenue.</div></div>
-      <div class="think-card"><div class="think-icon">&#128337;</div><div class="think-body"><h3 class="think-title">Scheduled Automations with Retry Logic</h3><p class="think-desc">Tasks run on defined schedules and restart automatically on failure — up to configurable limits — so a single crash does not break the whole pipeline.</p></div></div>
-      <div class="think-card"><div class="think-icon">&#128202;</div><div class="think-body"><h3 class="think-title">Failure Flags in the Data</h3><p class="think-desc">When an API call fails, the record gets a status flag — not a silent skip. Failed items surface in Airtable or the log so they can be reviewed and reprocessed.</p></div></div>
-      <div class="think-card"><div class="think-icon">&#128065;</div><div class="think-body"><h3 class="think-title">Watchdog Monitoring</h3><p class="think-desc">Critical processes get a watchdog — a separate script that checks if the main process is still running and restarts it automatically if it stops. No manual babysitting required.</p></div></div>
-      <div class="think-card"><div class="think-icon">&#128196;</div><div class="think-body"><h3 class="think-title">Documentation for Maintenance</h3><p class="think-desc">Every system I build comes with documented trigger schedules, dependency maps, known failure points, and step-by-step instructions for whoever maintains it next.</p></div></div>
-      <div class="think-quote">"A system that needs constant watching is not a system. It is a responsibility."</div>
-    </div>
-
-    <!-- TESTIMONIALS -->
-    <div class="section" id="sec-testimonials">
-      <p class="page-label">Proof</p>
-      <h2 class="section-title">What clients notice</h2>
-      <div class="testi-card"><div class="testi-quote">"</div><p class="testi-text">Audrey's reliability is unmatched. Her proactive approach, readiness to learn new technologies, and excellent communication contribute long-term value. More than just a reliable executor &mdash; a true partner who helps drive the business forward.</p><div class="testi-author"><span class="testi-name">Jule Kucera</span><span class="testi-role">Creator &amp; Founder</span></div></div>
-      <div class="testi-card"><div class="testi-quote">"</div><p class="testi-text">Audrey's communication skills were truly outstanding. What truly set her apart was her ability to perform under pressure &mdash; focused, detail-oriented, and reliable even in the busiest moments.</p><div class="testi-author"><span class="testi-name">Katinka Lynch</span><span class="testi-role">Head Scheduler</span></div></div>
-      <div class="testi-card"><div class="testi-quote">"</div><p class="testi-text">I worked with Audrey for 10+ years. She was the ultimate subject-matter expert &mdash; immersed in the product, running calibration calls, participating in client calls. Detail-oriented, hard-working, great attitude.</p><div class="testi-author"><span class="testi-name">Leigha Riley</span><span class="testi-role">Program Manager &middot; 10+ years working together</span></div></div>
-      <div class="testi-card"><div class="testi-quote">"</div><p class="testi-text">Audrey quickly integrated into our team, completed multiple projects, handled lead distribution, and provided valuable feedback consistently. I would recommend her to any company.</p><div class="testi-author"><span class="testi-name">Toby</span><span class="testi-role">Operations Client</span></div></div>
-      <div class="testi-card"><div class="testi-quote">"</div><p class="testi-text">I appreciate you and you have been a blast to work with &mdash; you just got on with it, no hand holding. I'm glad I chose you.</p><div class="testi-author"><span class="testi-name">Arielle</span><span class="testi-role">via Email</span></div></div>
-      <div class="testi-card"><div class="testi-quote">"</div><p class="testi-text">Thanks so much for all you did to help us. It was important work and we really appreciate it. Good luck with your future endeavors!</p><div class="testi-author"><span class="testi-name">Farrah</span><span class="testi-role">via Slack</span></div></div>
-      <div class="testi-card"><div class="testi-quote">"</div><p class="testi-text">Thank you Audrey &mdash; you're amazing and I don't ever want to lose touch with you. You have so many gifts and talents and I want you to be successful.</p><div class="testi-author"><span class="testi-name">Shannon</span><span class="testi-role">via WhatsApp</span></div></div>
-      <div class="testi-card"><div class="testi-quote">"</div><p class="testi-text">When you find someone who truly gets your vision and documents everything properly, it changes how the whole operation runs. Wowza!</p><div class="testi-author"><span class="testi-name">Hope</span><span class="testi-role">Business Owner</span></div></div>
-    </div>
-
-    <!-- SKILLS -->
-    <div class="section" id="sec-skills">
-      <p class="page-label">Capabilities</p>
-      <h2 class="section-title">Core capabilities</h2>
-      <div class="skill-card"><div class="skill-card-icon">&#128450;</div><div class="skill-card-body"><h3 class="skill-card-title">CRM Logic &amp; Structure</h3><p class="skill-card-desc">I rebuild tags, stages, fields, segmentation, and routing logic so your CRM reflects reality and can actually be trusted.</p><span class="skill-card-tag">Expert</span></div></div>
-      <div class="skill-card"><div class="skill-card-icon">&#9881;</div><div class="skill-card-body"><h3 class="skill-card-title">Automation Troubleshooting</h3><p class="skill-card-desc">I trace inconsistent triggers, missed handoffs, broken sequences, and unreliable workflow behavior back to the logic that caused them.</p><span class="skill-card-tag">Expert</span></div></div>
-      <div class="skill-card"><div class="skill-card-icon">&#128269;</div><div class="skill-card-body"><h3 class="skill-card-title">QA &amp; Error Detection</h3><p class="skill-card-desc">14+ years of QA and operations work trained me to catch the small inconsistencies that turn into expensive system failures later.</p><span class="skill-card-tag">Expert &middot; 14+ years</span></div></div>
-      <div class="skill-card"><div class="skill-card-icon">&#129513;</div><div class="skill-card-body"><h3 class="skill-card-title">Systems Thinking</h3><p class="skill-card-desc">I look at the whole workflow, not isolated tasks, so fixes improve reliability instead of shifting the problem downstream.</p><span class="skill-card-tag">Expert</span></div></div>
-      <div class="skill-card"><div class="skill-card-icon">&#128203;</div><div class="skill-card-body"><h3 class="skill-card-title">SOP Documentation</h3><p class="skill-card-desc">I turn fragile, founder-dependent processes into documented systems the team can run with consistency.</p><span class="skill-card-tag">Advanced</span></div></div>
-      <div class="skill-card"><div class="skill-card-icon">&#129302;</div><div class="skill-card-body"><h3 class="skill-card-title">AI Workflow Integration</h3><p class="skill-card-desc">I use AI as an operational step inside structured workflows - classifying, routing, and supporting decisions instead of sitting in a separate tab.</p><span class="skill-card-tag">Expert</span></div></div>
-    </div>
-
-    <!-- CLIENTS -->
-    <div class="section" id="sec-clients">
-      <p class="page-label">Best fit</p>
-      <h2 class="section-title">Who I Work Best With</h2>
-      <div class="client-intro"><strong>Founders, coaches, agencies, service businesses, and online operators</strong> with backend systems that were patched together over time and no longer behave reliably.</div>
-      <ul class="signal-list">
-        <li>Your CRM data is inconsistent enough that reporting, segmentation, or follow-up cannot be trusted.</li>
-        <li>Your automations technically run, but they misfire, skip steps, or produce the wrong outcome.</li>
-        <li>Your backend has grown through patches, workarounds, and quick fixes that nobody fully understands anymore.</li>
-        <li>Your team lacks clear internal logic, ownership, or documentation for how the system is supposed to work.</li>
-        <li>The founder is still the safety net because the system only works when someone watches it closely.</li>
-        <li>You are using AI manually instead of making it an operational part of the workflow.</li>
-      </ul>
-      <div class="fit-label">Best fit for businesses whose backend looks organized on the surface, but cannot be trusted behind the scenes.</div>
-    </div>
-
-    <!-- CONTACT -->
-    <div class="section" id="sec-contact">
-      <p class="page-label">Systems call</p>
-      <h2 class="section-title">If your systems feel slightly off, they usually are.</h2>
-      <div class="calendly-cta">
-        <div class="calendly-text"><span class="calendly-title">Book a free 30-minute systems call.</span><span class="calendly-sub">We'll identify what's actually breaking, what's causing it, and what it takes to fix it properly.</span></div>
-        <a class="calendly-btn" href="https://calendly.com/yourvaaudrey/30min" target="_blank">Book a Systems Call &rarr;</a>
-      </div>
-      <div class="contact-divider">Prefer async? Send the issue directly.</div>
-      <div class="contact-form-wrap">
-        <form id="contact-form" action="https://formspree.io/f/mykbdzyq" method="POST">
-          <div class="form-group"><label class="form-label">Your name</label><input type="text" name="name" class="form-input" placeholder="Jane Smith" required /></div>
-          <div class="form-group"><label class="form-label">Your email</label><input type="email" name="email" class="form-input" placeholder="jane@example.com" required /></div>
-          <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-input form-textarea" placeholder="Tell me what's breaking, what should be happening, or where the system feels unreliable." required></textarea></div>
-          <button type="submit" class="form-submit">Send message &rarr;</button>
-        </form>
-        <div id="form-success" class="form-success" style="display:none;"><span class="success-icon">&#9989;</span><p>Message sent! I'll get back to you within 24 hours.</p></div>
-      </div>
-      <div class="contact-divider">or reach out directly</div>
-      <div class="contact-list">
-        <a class="contact-item" href="mailto:yourvaaudrey@gmail.com?subject=Inquiry from your portfolio&amp;body=Hi Audrey, I found your portfolio and would like to connect." target="_blank"><div class="contact-icon-wrap">&#128231;</div><div><p class="contact-label">Email</p><p class="contact-value">yourvaaudrey@gmail.com</p></div><span class="contact-arrow">&rarr;</span></a>
-        <a class="contact-item" href="https://www.linkedin.com/in/audreyrguevarra/" target="_blank"><div class="contact-icon-wrap">&#128188;</div><div><p class="contact-label">LinkedIn</p><p class="contact-value">linkedin.com/in/audreyrguevarra</p></div><span class="contact-arrow">&rarr;</span></a>
-        <a class="contact-item" href="https://v2.onlinejobs.ph/jobseekers/info/495236" target="_blank"><div class="contact-icon-wrap">&#127760;</div><div><p class="contact-label">OnlineJobs.ph</p><p class="contact-value">View my profile</p></div><span class="contact-arrow">&rarr;</span></a>
-      </div>
-      <p class="contact-note">Best for CRM cleanup, automation troubleshooting, data reliability, SOPs, and operational systems work.<br>Response within 24 hours.</p>
-    </div>
-
-  </div><!-- /content -->
-
-  <!-- BOTTOM NAV -->
-  <nav class="bottom-nav">
-    <div class="nav-pill">
-      <button class="nav-btn active" onclick="go(this,'me')"><span class="nav-ico">🙂</span><span class="nav-lbl">Overview</span></button>
-      <button class="nav-btn" onclick="go(this,'think')"><span class="nav-ico">🧠</span><span class="nav-lbl">Approach</span></button>
-      <button class="nav-btn" onclick="go(this,'work')"><span class="nav-ico">💼</span><span class="nav-lbl">Fixes</span></button>
-      <button class="nav-btn" onclick="go(this,'systems')"><span class="nav-ico">🧩</span><span class="nav-lbl">Cases</span></button>
-      <button class="nav-btn" onclick="go(this,'architecture')"><span class="nav-ico">🔗</span><span class="nav-lbl">Stack</span></button>
-      <button class="nav-btn" onclick="go(this,'risks')"><span class="nav-ico">⚠️</span><span class="nav-lbl">Risks</span></button>
-      <button class="nav-btn" onclick="go(this,'audit')"><span class="nav-ico">🧹</span><span class="nav-lbl">Audit</span></button>
-      <button class="nav-btn" onclick="go(this,'monitoring')"><span class="nav-ico">📡</span><span class="nav-lbl">Uptime</span></button>
-      <button class="nav-btn" onclick="go(this,'testimonials')"><span class="nav-ico">💬</span><span class="nav-lbl">Reviews</span></button>
-      <button class="nav-btn" onclick="go(this,'contact')"><span class="nav-ico">✉️</span><span class="nav-lbl">Contact</span></button>
-    </div>
-  </nav>
+<!-- ─── TRUST BAR ───────────────────────────────────────────────────── -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><div class="trust-dot"></div><span><strong>14 yrs</strong> Ops &amp; QA Experience</span></div>
+    <div class="trust-item"><div class="trust-dot"></div><span><strong>13 yrs</strong> QA, Audits &amp; SOPs</span></div>
+    <div class="trust-item"><div class="trust-dot"></div><span><strong>CRM</strong> GoHighLevel · Zoho · Kit</span></div>
+    <div class="trust-item"><div class="trust-dot"></div><span><strong>Systems</strong> Zapier · ManyChat · GHL</span></div>
+    <div class="trust-item"><div class="trust-dot"></div><span><strong>Email</strong> Instantly · NeverBounce · Kit</span></div>
+  </div>
 </div>
+
+<!-- ─── ABOUT ───────────────────────────────────────────────────────── -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="label">About</span>
+        <h2>The person behind the backend cleanup</h2>
+        <div class="divider"></div>
+        <p>
+          I'm Audrey — a Backend Operations &amp; Automation Support Specialist based in the Philippines with 14 years of experience in operations and quality assurance, including 13 years specifically in QA, audits, compliance, SOPs, and accuracy-focused execution.
+        </p>
+        <p>
+          I came up through real operational work — reviewing processes, catching errors, building SOPs, and managing the details that keep systems running. Over time, that QA foundation grew into backend systems support: cleaning up CRMs, troubleshooting automation failures, auditing lifecycle logic, and documenting workflows that nobody ever wrote down.
+        </p>
+        <p>
+          My work isn't development. I'm not building products from scratch. I'm the person who comes in when the systems that are supposed to be running aren't behaving — and I fix what's broken, document what's unclear, and stabilize what's unreliable.
+        </p>
+        <p>
+          Clients come to me for backend support, CRM cleanup, workflow QA, automation troubleshooting, tag and sequence audits, and SOP work. I work cleanly, communicate clearly, and I document everything so it doesn't just depend on me.
+        </p>
+        <p>
+          I operate under my own brand, <strong>Clear Rails</strong>, and take on contract and freelance engagements where backend reliability and operational clarity actually matter.
+        </p>
+      </div>
+      <div>
+        <div class="stat-box">
+          <div class="stat-num">14</div>
+          <div class="stat-label">Years in Operations &amp; QA</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">13</div>
+          <div class="stat-label">Years in QA, Audits &amp; Compliance</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Remote — Philippines-based</div>
+        </div>
+        <div class="stat-box" style="background:var(--accent-pale); border-color: transparent;">
+          <div class="stat-num" style="font-size:1.1rem; color: var(--accent);">BS Business Administration</div>
+          <div class="stat-label">Ops background, not a developer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─────────────────────────────────────────────────────── -->
+<section id="services" class="section section--alt">
+  <div class="container">
+    <span class="label">Services</span>
+    <h2>What I help with</h2>
+    <div class="divider"></div>
+    <p style="max-width:580px; margin-bottom:40px;">Backend operations support for founders, agencies, coaches, and service businesses whose systems were patched together fast — and now need someone to clean up the gaps.</p>
+
+    <div class="services-grid">
+
+      <div class="card card--accent">
+        <span class="card__icon">🗂</span>
+        <h3>CRM Cleanup &amp; Backend Systems Support</h3>
+        <p>Tags drifted, pipeline stages don't match reality, records are duplicated, and segmentation stopped making sense. I audit the underlying structure, clean the data logic, and rebuild the CRM so it reflects how leads actually move.</p>
+        <div class="tags">
+          <span class="tag">GoHighLevel</span>
+          <span class="tag">Zoho CRM</span>
+          <span class="tag">Kit / ConvertKit</span>
+          <span class="tag">Dubsado</span>
+        </div>
+      </div>
+
+      <div class="card card--accent">
+        <span class="card__icon">🔧</span>
+        <h3>Workflow QA &amp; Automation Troubleshooting</h3>
+        <p>The wrong email fires, a trigger gets skipped, a handoff quietly fails. I trace the trigger-to-outcome logic, isolate the break point, and document the fix so it doesn't recur two weeks later.</p>
+        <div class="tags">
+          <span class="tag">Zapier</span>
+          <span class="tag">GHL Automations</span>
+          <span class="tag">Kit Sequences</span>
+          <span class="tag">ManyChat</span>
+        </div>
+      </div>
+
+      <div class="card card--accent">
+        <span class="card__icon">📬</span>
+        <h3>Email Deliverability &amp; Lead QA</h3>
+        <p>Leads from different sources need a clean, verified pipeline before hitting your outreach tool. I build suppression logic, validate through NeverBounce, remove generic and duplicate contacts, and make sure only clean emails move forward.</p>
+        <div class="tags">
+          <span class="tag">Instantly</span>
+          <span class="tag">NeverBounce</span>
+          <span class="tag">Suppression Lists</span>
+          <span class="tag">Google Sheets</span>
+        </div>
+      </div>
+
+      <div class="card card--accent">
+        <span class="card__icon">🔁</span>
+        <h3>Tag, Sequence &amp; Lifecycle System Audits</h3>
+        <p>Tags accumulated over time, sequences overlap, and nobody's sure which automation fires on whom. I audit the full tag and sequence structure, standardize naming, remove stale logic, and document what should trigger when.</p>
+        <div class="tags">
+          <span class="tag">Kit / ConvertKit</span>
+          <span class="tag">GHL</span>
+          <span class="tag">ManyChat</span>
+          <span class="tag">Skool</span>
+          <span class="tag">Whop</span>
+        </div>
+      </div>
+
+      <div class="card card--accent">
+        <span class="card__icon">📋</span>
+        <h3>SOP Documentation &amp; Operational Process Cleanup</h3>
+        <p>The backend only works because one person knows the unwritten rules. When that changes, execution breaks. I document workflows with conditions, exceptions, ownership, and handoffs — so the system runs without constant supervision.</p>
+        <div class="tags">
+          <span class="tag">SOP Writing</span>
+          <span class="tag">Process Cleanup</span>
+          <span class="tag">Handoff Docs</span>
+          <span class="tag">Workflow Mapping</span>
+        </div>
+      </div>
+
+      <div class="card card--accent">
+        <span class="card__icon">✅</span>
+        <h3>Task Governance &amp; Client Backend Implementation</h3>
+        <p>Tasks fall through Slack, ClickUp gets messy, and nobody's clear on who owns what step. I set up task governance, manage backend implementation work, and keep operations accountable so things actually get done.</p>
+        <div class="tags">
+          <span class="tag">ClickUp</span>
+          <span class="tag">Trello</span>
+          <span class="tag">Slack</span>
+          <span class="tag">Google Workspace</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CASE STUDIES ──────────────────────────────────────────────────── -->
+<section id="work" class="section">
+  <div class="container">
+    <span class="label">Case Studies</span>
+    <h2>Problems I've solved</h2>
+    <div class="divider"></div>
+    <p style="max-width:560px; margin-bottom:40px;">Specific examples of backend issues I diagnosed, cleaned up, and stabilized for real client systems.</p>
+
+    <div class="grid-2">
+
+      <div class="case-card">
+        <div class="case-card__label">Automation Audit</div>
+        <h3>Whop → Zapier → Kit Lifecycle Audit</h3>
+        <p>
+          A Whop-based membership system had a broken Invoice Paid filter, a hardcoded email address that should have been dynamic, and tag mismatches causing zero subscribers to enter the Churn Trial sequence. An API authorization error on one Zap had been silently failing with no one aware.
+        </p>
+        <p>I traced each Zap from trigger to final action, identified every failure point, documented the fixes with step-by-step instructions, and prepared a full audit handoff so the client could take action without decoding the system from scratch.</p>
+        <div class="case-card__outcome">
+          Outcome: Zero subscribers entering the Churn Trial sequence identified as a logic error — not normal behavior. Documented fix path for all affected Zaps.
+        </div>
+        <div class="tags">
+          <span class="tag">Whop</span>
+          <span class="tag">Zapier</span>
+          <span class="tag">Kit / ConvertKit</span>
+          <span class="tag">Lifecycle Audit</span>
+          <span class="tag">Automation QA</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-card__label">CRM &amp; Email Deliverability</div>
+        <h3>Outbound Email Pipeline — Instantly + NeverBounce + Suppression</h3>
+        <p>
+          Leads from multiple sources needed a clean, trackable process before reaching the outbound tool. Without a defined pipeline, the risk was duplicate outreach, invalid emails, and poor deliverability damaging the sender reputation.
+        </p>
+        <p>I built a Google Sheets control layer that acted as the source of truth, removed generic and unverifiable contacts, ran the list through NeverBounce, enforced a suppression list, and created a clear status flow from Verified → Queued → Sent.</p>
+        <div class="case-card__outcome">
+          Outcome: Clean, auditable lead pipeline. Duplicate and invalid contacts removed before reaching inboxes. Suppression logic holds across future batches.
+        </div>
+        <div class="tags">
+          <span class="tag">Instantly</span>
+          <span class="tag">NeverBounce</span>
+          <span class="tag">Google Sheets</span>
+          <span class="tag">Zoho CRM</span>
+          <span class="tag">Suppression Logic</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-card__label">Platform Audit</div>
+        <h3>GoHighLevel CRM Audit &amp; Workflow Structuring</h3>
+        <p>
+          A GHL system had automations and funnels in place, but no one had a clear view of what existed, what overlapped, or what would break if someone made a change. The risk was invisible — until it wasn't.
+        </p>
+        <p>I audited the full GHL structure: workflows, automations, funnels, and membership setup. I mapped what was actively running, identified structural gaps, and produced a documented review so the team could make changes safely.</p>
+        <div class="case-card__outcome">
+          Outcome: Structural gaps identified before any changes were made — preventing automation breaks during rollout.
+        </div>
+        <div class="tags">
+          <span class="tag">GoHighLevel</span>
+          <span class="tag">CRM Audit</span>
+          <span class="tag">Workflow Mapping</span>
+          <span class="tag">Funnel Review</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-card__label">Email Sequence Ops</div>
+        <h3>Kit Sequence Stall — 226 Subscribers Stuck Mid-Sequence</h3>
+        <p>
+          Approximately 226 subscribers had stalled after Email 2 in a Kit sequence and weren't advancing. The issue wasn't a broken trigger — it was that repeated content edits had been resetting Kit's send timer, silently halting progress for everyone in that sequence.
+        </p>
+        <p>I diagnosed the root cause by tracing the edit history and Kit's timer behavior, documented the fix, and resolved it without re-firing the earlier emails that subscribers had already received.</p>
+        <div class="case-card__outcome">
+          Outcome: Sequence restored for 226 subscribers. Root cause documented so it won't recur.
+        </div>
+        <div class="tags">
+          <span class="tag">Kit / ConvertKit</span>
+          <span class="tag">Email Sequence QA</span>
+          <span class="tag">Deliverability Support</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─────────────────────────────────────────────────── -->
+<section id="testimonials" class="section section--alt">
+  <div class="container">
+    <span class="label">Client Feedback</span>
+    <h2>What clients say</h2>
+    <div class="divider"></div>
+    <p style="max-width:560px; margin-bottom:40px;">From agency operations to backend systems cleanup, here's what working together has looked like.</p>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <p>I'm so grateful to have you on the team. Thank you, Audrey.</p>
+        <div class="testimonial-author">Zoe</div>
+        <div class="testimonial-role">Agency Operations Client</div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>Audrey, you've been amazing. I really appreciate you. Thank you for being proactive and figuring things out — I couldn't have done it myself.</p>
+        <div class="testimonial-author">Alyssa</div>
+        <div class="testimonial-role">Operations / Backend Support Client</div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>I know the backend is a mess, so I appreciate you staying on and helping align the right things. It means a lot.</p>
+        <div class="testimonial-author">Jaylah</div>
+        <div class="testimonial-role">Backend Systems Client</div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>Audrey's reliability is unmatched. Her proactive approach, readiness to learn new technologies, and excellent communication contribute long-term value. More than just a reliable executor — a true partner who helps drive the business forward.</p>
+        <div class="testimonial-author">Jule Kucera</div>
+        <div class="testimonial-role">Creator &amp; Founder</div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>I appreciate you and you have been a blast to work with — you just got on with it, no hand holding. I'm glad I chose you.</p>
+        <div class="testimonial-author">Arielle</div>
+        <div class="testimonial-role">via Email</div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>I worked with Audrey for over 10 years. She was the ultimate subject-matter expert — immersed in the product, running calibration calls, detail-oriented, hard-working, great attitude.</p>
+        <div class="testimonial-author">Leigha Riley</div>
+        <div class="testimonial-role">Program Manager · 10+ years working together</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── TOOLS ────────────────────────────────────────────────────────── -->
+<section id="tools" class="section">
+  <div class="container">
+    <span class="label">Tools</span>
+    <h2>What I work in</h2>
+    <div class="divider"></div>
+    <p style="max-width:560px; margin-bottom:40px;">Tools I use regularly in client work — organized by category. Exposure-only tools are noted separately.</p>
+
+    <div class="tools-group">
+      <h3>CRM &amp; Lifecycle Systems</h3>
+      <div class="tools-tags">
+        <span class="tag">GoHighLevel</span>
+        <span class="tag">Kit / ConvertKit</span>
+        <span class="tag">Zoho CRM</span>
+        <span class="tag">ManyChat</span>
+        <span class="tag">Skool</span>
+        <span class="tag">Whop</span>
+        <span class="tag">Dubsado</span>
+      </div>
+    </div>
+
+    <div class="tools-group">
+      <h3>Automation &amp; Workflow</h3>
+      <div class="tools-tags">
+        <span class="tag">Zapier</span>
+        <span class="tag">GHL Automations</span>
+        <span class="tag">ManyChat Flows</span>
+      </div>
+    </div>
+
+    <div class="tools-group">
+      <h3>Email Deliverability &amp; Outreach</h3>
+      <div class="tools-tags">
+        <span class="tag">Instantly</span>
+        <span class="tag">NeverBounce</span>
+        <span class="tag">Kit Sequences</span>
+        <span class="tag">Suppression Management</span>
+      </div>
+    </div>
+
+    <div class="tools-group">
+      <h3>Project &amp; Task Management</h3>
+      <div class="tools-tags">
+        <span class="tag">ClickUp</span>
+        <span class="tag">Trello</span>
+        <span class="tag">Slack</span>
+        <span class="tag">Discord</span>
+        <span class="tag">Zoom</span>
+      </div>
+    </div>
+
+    <div class="tools-group">
+      <h3>Data, Docs &amp; Workspace</h3>
+      <div class="tools-tags">
+        <span class="tag">Google Sheets</span>
+        <span class="tag">Google Drive</span>
+        <span class="tag">Google Forms</span>
+        <span class="tag">Google Workspace</span>
+      </div>
+    </div>
+
+    <div class="tools-group">
+      <h3>Project-Based Technical Exposure <span style="font-weight:400; text-transform:none; letter-spacing:0; font-size:0.9em;">(not core service offerings)</span></h3>
+      <div class="tools-tags">
+        <span class="tag tag--muted">Airtable</span>
+        <span class="tag tag--muted">Make.com</span>
+        <span class="tag tag--muted">n8n</span>
+        <span class="tag tag--muted">Google Apps Script</span>
+        <span class="tag tag--muted">OpenAI API</span>
+        <span class="tag tag--muted">Claude API</span>
+        <span class="tag tag--muted">Node.js</span>
+        <span class="tag tag--muted">PowerShell</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── APPROACH ─────────────────────────────────────────────────────── -->
+<section class="section section--dark">
+  <div class="container">
+    <span class="label">Approach</span>
+    <h2 style="color:#F7F5F1; margin-bottom:8px;">How I work</h2>
+    <div class="divider" style="background:#2E5D4B;"></div>
+    <p style="max-width:560px; margin-bottom:44px; color:#BDB9B3;">My QA background shapes everything. I don't just fix the visible symptom — I find the logic underneath it.</p>
+    <div class="approach-grid">
+      <div class="approach-item">
+        <div class="icon">🗺</div>
+        <h3>Map before touching</h3>
+        <p style="font-size:0.88rem;">I trace the real flow first — data, tagging, routing, automations, and handoffs. That prevents surface-level fixes that break somewhere else.</p>
+      </div>
+      <div class="approach-item">
+        <div class="icon">🔬</div>
+        <h3>Root cause, not symptoms</h3>
+        <p style="font-size:0.88rem;">Missed leads, wrong tags, and unreliable reports are rarely isolated. I find the logic problem so the fix actually holds.</p>
+      </div>
+      <div class="approach-item">
+        <div class="icon">📋</div>
+        <h3>Document everything</h3>
+        <p style="font-size:0.88rem;">I document systems so they stay maintainable — by the next person, not just the one who was there when it was built.</p>
+      </div>
+      <div class="approach-item">
+        <div class="icon">✅</div>
+        <h3>QA mindset first</h3>
+        <p style="font-size:0.88rem;">13 years of QA work trained me to catch inconsistencies early, test edge cases, and flag what's silently wrong before it costs something.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHO I WORK WITH ───────────────────────────────────────────────── -->
+<section class="section section--alt">
+  <div class="container">
+    <span class="label">Best Fit</span>
+    <h2>Who I work best with</h2>
+    <div class="divider"></div>
+    <p style="max-width:600px; margin-bottom:36px;">Founders, agencies, coaches, service businesses, and online operators with backend systems that grew faster than their logic.</p>
+    <div class="grid-2">
+      <div>
+        <div class="card" style="margin-bottom:14px;">
+          <p style="font-size:0.92rem;">✦ &nbsp;Your CRM data is inconsistent enough that reporting, segmentation, or follow-up can't be trusted.</p>
+        </div>
+        <div class="card" style="margin-bottom:14px;">
+          <p style="font-size:0.92rem;">✦ &nbsp;Your automations technically run, but they misfire, skip steps, or produce the wrong outcome.</p>
+        </div>
+        <div class="card" style="margin-bottom:14px;">
+          <p style="font-size:0.92rem;">✦ &nbsp;Your backend has been patched together over time and nobody fully understands how it works anymore.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:14px;">
+          <p style="font-size:0.92rem;">✦ &nbsp;Your team lacks clear internal logic, ownership, or documentation for how the system is supposed to work.</p>
+        </div>
+        <div class="card" style="margin-bottom:14px;">
+          <p style="font-size:0.92rem;">✦ &nbsp;You need backend implementation support — someone who can execute cleanly without needing constant direction.</p>
+        </div>
+        <div class="card" style="margin-bottom:14px;">
+          <p style="font-size:0.92rem;">✦ &nbsp;You're hiring for: Backend Ops Specialist, Automation Support, CRM Ops, Workflow QA, or Email Deliverability support.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ──────────────────────────────────────────────────────── -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="label">Contact</span>
+        <h2>If your systems feel slightly off, they usually are.</h2>
+        <div class="divider"></div>
+        <p style="margin-bottom:28px;">Book a free 30-minute systems call. We'll identify what's actually breaking, what's causing it, and what it takes to fix it properly. Prefer async? Use the form.</p>
+        <a href="https://calendly.com/yourvaaudrey/30min" class="btn btn--primary" target="_blank" rel="noopener" style="margin-bottom:28px; display:inline-block;">Book a Systems Call →</a>
+
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" placeholder="Jane Smith" />
+            </div>
+            <div class="form-field">
+              <label for="email">Your email</label>
+              <input type="email" id="email" placeholder="jane@company.com" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="subject">What do you need help with?</label>
+            <select id="subject">
+              <option value="">Select a service...</option>
+              <option>CRM Cleanup &amp; Backend Systems Support</option>
+              <option>Workflow QA &amp; Automation Troubleshooting</option>
+              <option>Email Deliverability &amp; Lead QA</option>
+              <option>Tag, Sequence &amp; Lifecycle Audit</option>
+              <option>SOP Documentation &amp; Process Cleanup</option>
+              <option>Task Governance &amp; Backend Implementation</option>
+              <option>Other / General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="message">Tell me about the problem</label>
+            <textarea id="message" placeholder="Describe what's broken, what you've tried, and what you need from here..."></textarea>
+          </div>
+          <button class="btn btn--primary" onclick="handleSubmit()" style="align-self:flex-start;">Send message →</button>
+          <p id="form-success" style="display:none; color: var(--accent); font-size:0.88rem;">✅ Message sent! I'll get back to you within 24 hours.</p>
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <h3>Or reach out directly</h3>
+        <div>
+          <a class="contact-link" href="mailto:yourvaaudrey@gmail.com?subject=Inquiry from your portfolio&body=Hi Audrey,">
+            <span class="ci">📧</span>
+            <span>yourvaaudrey@gmail.com</span>
+          </a>
+          <a class="contact-link" href="https://www.linkedin.com/in/audreyrguevarra/" target="_blank" rel="noopener">
+            <span class="ci">💼</span>
+            <span>linkedin.com/in/audreyrguevarra</span>
+          </a>
+          <a class="contact-link" href="https://v2.onlinejobs.ph/jobseekers/info/495236" target="_blank" rel="noopener">
+            <span class="ci">🌐</span>
+            <span>OnlineJobs.ph Profile</span>
+          </a>
+        </div>
+
+        <div style="margin-top:32px; padding:20px; background: var(--accent-pale); border-radius: var(--radius);">
+          <p style="font-size:0.85rem; color: var(--accent); font-weight:600; margin-bottom:6px;">Best for:</p>
+          <p style="font-size:0.82rem; color: var(--accent);">CRM cleanup · Automation troubleshooting · Workflow QA · Email deliverability · SOPs · Backend implementation</p>
+          <p style="font-size:0.78rem; color: var(--ink-muted); margin-top:10px;">Response within 24 hours. Philippines timezone (PHT / UTC+8).</p>
+        </div>
+
+        <div style="margin-top:20px; padding:20px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);">
+          <p style="font-size:0.8rem; font-weight:600; color:var(--ink-soft); margin-bottom:10px;">Open for:</p>
+          <div style="display:flex; flex-wrap:wrap;">
+            <span class="tag" style="margin-bottom:6px;">Backend Ops Specialist</span>
+            <span class="tag" style="margin-bottom:6px;">Automation Support</span>
+            <span class="tag" style="margin-bottom:6px;">CRM Operations</span>
+            <span class="tag" style="margin-bottom:6px;">Workflow QA</span>
+            <span class="tag" style="margin-bottom:6px;">Email Deliverability</span>
+            <span class="tag" style="margin-bottom:6px;">SOP Specialist</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <p>© 2025 Audrey Guevarra · Clear Rails · Backend Operations &amp; Automation Support</p>
+    <p>Philippines-based · Remote · yourvaaudrey@gmail.com</p>
+  </div>
+</footer>
 
 <script>
-  function go(btn, id) {
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('sec-' + id).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  function handleSubmit() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if (!name || !email || !message) {
+      alert('Please fill in your name, email, and message.');
+      return;
+    }
+    document.getElementById('form-success').style.display = 'block';
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('message').value = '';
   }
-  function openSection(id) {
-    const btn = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.getAttribute('onclick') === `go(this,'${id}')`);
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    if (btn) btn.classList.add('active');
-    document.getElementById('sec-' + id).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  const form = document.getElementById('contact-form');
-  if (form) {
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const btn = form.querySelector('.form-submit');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      try {
-        const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
-        if (res.ok) { form.style.display='none'; document.getElementById('form-success').style.display='block'; }
-        else { btn.textContent='Try again'; btn.disabled=false; }
-      } catch { btn.textContent='Try again'; btn.disabled=false; }
-    });
-  }
-</script>
 
+  // Scroll-reveal for cards
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.card, .case-card, .testimonial-card, .approach-item, .stat-box').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+    observer.observe(el);
+  });
+</script>
 </body>
 </html>
