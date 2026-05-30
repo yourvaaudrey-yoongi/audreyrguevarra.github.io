@@ -398,6 +398,30 @@ background: var(--surface-2);
 color: var(--ink-muted);
 }
 
+/* ─── BEFORE THE CALL NOTE ──────────────────────────────────────────────── */
+.before-call-note {
+margin-bottom: 28px;
+padding: 14px 18px;
+background: var(--surface-2);
+border-left: 3px solid var(--accent);
+border-radius: 0 var(--radius) var(--radius) 0;
+max-width: 480px;
+}
+.before-call-note .note-label {
+font-size: 0.7rem;
+font-weight: 600;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--accent);
+margin-bottom: 5px;
+}
+.before-call-note .note-body {
+font-size: 0.86rem;
+color: var(--ink-muted);
+line-height: 1.55;
+margin-bottom: 0;
+}
+
 /* ─── CONTACT ────────────────────────────────────────────────── */
 .contact-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 60px; align-items: start; }
 @media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; } }
@@ -1054,7 +1078,12 @@ Outcome: Sequence restored for 226 subscribers. Root cause documented so it won'
 <h2>If your systems feel slightly off, they usually are.</h2>
 <div class="divider"></div>
 <p style="margin-bottom:28px;">Book a free 30-minute systems call. We'll identify what's actually breaking, what's causing it, and what it takes to fix it properly. Prefer async? Use the form.</p>
-<a href="https://calendly.com/yourvaaudrey/automation-audit" class="btn btn--primary" target="_blank" rel="noopener" style="margin-bottom:28px; display:inline-block;">Book a Systems Call →</a>
+<a href="https://calendly.com/yourvaaudrey/automation-audit" class="btn btn--primary" target="_blank" rel="noopener" style="margin-bottom:20px; display:inline-block;">Book a Systems Call →</a>
+
+<div class="before-call-note">
+<p class="note-label">Before the call</p>
+<p class="note-body">I review submitted details before each call to understand the scope, urgency, and fit. This helps keep the conversation focused on the actual issue — and whether audit, cleanup, or remediation is the right next step.</p>
+</div>
 
 <div class="contact-form">
 <div class="form-row">
