@@ -170,6 +170,16 @@ color: var(--ink-soft);
 max-width: 560px;
 margin-bottom: 16px;
 }
+.hero-audit-note {
+font-size: 0.9rem;
+color: var(--ink-soft);
+max-width: 560px;
+margin-bottom: 16px;
+padding: 12px 16px;
+background: var(--accent-pale);
+border-left: 3px solid var(--accent);
+border-radius: 0 var(--radius) var(--radius) 0;
+}
 .hero-note {
 font-size: 0.85rem;
 color: var(--ink-muted);
@@ -261,6 +271,39 @@ margin-bottom: 14px;
 .stat-num { font-family: var(--ff-display); font-size: 2.4rem; color: var(--accent); line-height: 1; }
 .stat-label { font-size: 0.8rem; color: var(--ink-muted); margin-top: 4px; }
 
+/* ─── PROCESS SECTION ────────────────────────────────────────── */
+.process-grid {
+display: grid;
+grid-template-columns: 3fr 2fr;
+gap: 60px;
+align-items: start;
+}
+@media (max-width: 760px) { .process-grid { grid-template-columns: 1fr; } }
+.process-deliverables {
+background: var(--surface);
+border: 1px solid var(--line);
+border-radius: var(--radius);
+padding: 24px 28px;
+}
+.process-deliverables ul {
+padding-left: 18px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-top: 12px;
+}
+.process-deliverables li {
+font-size: 0.9rem;
+color: var(--ink-soft);
+}
+.process-deliverables .scope-note {
+font-size: 0.82rem;
+color: var(--ink-muted);
+margin-top: 16px;
+padding-top: 14px;
+border-top: 1px solid var(--line);
+}
+
 /* ─── SERVICES ───────────────────────────────────────────────── */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
 
@@ -332,6 +375,29 @@ font-style: italic;
 .section--dark .approach-item { border-color: #2E5D4B; }
 .section--dark .approach-item h3 { color: #F7F5F1; }
 
+/* ─── BEST FIT / NOT BEST FIT ────────────────────────────────── */
+.not-fit-block {
+margin-top: 44px;
+padding: 28px 32px;
+background: var(--surface);
+border: 1px solid var(--line);
+border-radius: var(--radius);
+}
+.not-fit-block h3 {
+font-size: 1rem;
+margin-bottom: 16px;
+color: var(--ink);
+}
+.not-fit-list {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+}
+.not-fit-list .tag--muted {
+background: var(--surface-2);
+color: var(--ink-muted);
+}
+
 /* ─── CONTACT ────────────────────────────────────────────────── */
 .contact-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 60px; align-items: start; }
 @media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; } }
@@ -340,6 +406,7 @@ font-style: italic;
 @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
 .form-field { display: flex; flex-direction: column; gap: 5px; }
 .form-field label { font-size: 0.8rem; font-weight: 600; color: var(--ink-soft); }
+.form-field .field-hint { font-size: 0.75rem; color: var(--ink-muted); margin-top: 2px; }
 .form-field input, .form-field textarea, .form-field select {
 padding: 10px 14px;
 border: 1.5px solid var(--line);
@@ -407,6 +474,7 @@ to { opacity: 1; transform: translateY(0); }
 <span class="nav-logo">Audrey Guevarra</span>
 <ul class="nav-links">
 <li><a href="#about">About</a></li>
+<li><a href="#process">Process</a></li>
 <li><a href="#services">Services</a></li>
 <li><a href="#work">Work</a></li>
 <li><a href="#tools">Tools</a></li>
@@ -425,6 +493,9 @@ to { opacity: 1; transform: translateY(0); }
 <h1 class="fade-up fade-up-1">I audit, clean up, and stabilize backend systems so leads, customers, and operations don't fall through the cracks.</h1>
 <p class="hero-sub fade-up fade-up-2">
 CRM cleanup, workflow QA, automation troubleshooting, lifecycle system audits, SOP documentation, and email deliverability support — for teams that can't afford silent failures in the backend.
+</p>
+<p class="hero-audit-note fade-up fade-up-2">
+Before anything gets changed, I review the current setup first — map what's actually running, find where it's breaking, and confirm what needs to be fixed before touching it.
 </p>
 <p class="hero-note fade-up fade-up-3">
 📍 Philippines &nbsp;·&nbsp;
@@ -469,10 +540,13 @@ I'm Audrey — a Backend Operations &amp; Automation Support Specialist based in
 I came up through real operational work — reviewing processes, catching errors, building SOPs, and managing the details that keep systems running. Over time, that QA foundation grew into backend systems support: cleaning up CRMs, troubleshooting automation failures, auditing lifecycle logic, and documenting workflows that nobody ever wrote down.
 </p>
 <p>
-My work isn't development. I'm not building products from scratch. I'm the person who comes in when the systems that are supposed to be running aren't behaving — and I fix what's broken, document what's unclear, and stabilize what's unreliable.
+My work isn't development. I'm not building products from scratch. I'm the person who comes in when the systems that are supposed to be running aren't behaving — and I diagnose what's broken before fixing it, document what's unclear, and stabilize what's unreliable.
 </p>
 <p>
-Clients come to me for backend support, CRM cleanup, workflow QA, automation troubleshooting, tag and sequence audits, and SOP work. I work cleanly, communicate clearly, and I document everything so it doesn't just depend on me.
+My approach starts with diagnosis, not changes. I review the current setup first, identify where the process is breaking, then recommend or apply fixes based on what the audit shows. This prevents rushed changes, duplicate work, and new issues caused by fixing the wrong part of the system.
+</p>
+<p>
+Every cleanup includes documentation, root-cause notes, and a clear handoff — so the system stays maintainable after the fix, not just while I'm in it.
 </p>
 <p>
 I take on contract and freelance engagements where backend reliability and operational clarity actually matter. I work well asynchronously — with clear updates, organized documentation, and reliable follow-through across different time zones.
@@ -500,8 +574,44 @@ I take on contract and freelance engagements where backend reliability and opera
 </div>
 </section>
 
+<!-- ─── HOW ENGAGEMENTS USUALLY WORK ────────────────────────────────── -->
+<section id="process" class="section section--alt">
+<div class="container">
+<span class="label">Process</span>
+<h2>How engagements usually work</h2>
+<div class="divider"></div>
+<div class="process-grid">
+<div>
+<p style="margin-bottom:18px;">
+Most projects start with an audit or troubleshooting review. I map the current setup, identify the break points, document the issues, and confirm the fix path before making major changes.
+</p>
+<p style="margin-bottom:18px;">
+This keeps scope clear from the start — no guessing, no rework, no changes that create new problems downstream.
+</p>
+<p style="margin-bottom:18px;">
+Every cleanup includes documentation, root-cause notes, and a clear handoff so the system stays maintainable after the fix — not just while I'm in it.
+</p>
+<p style="font-size:0.88rem; color: var(--ink-muted);">
+Scope is defined per engagement based on what the audit surfaces. I keep deliverables specific so the work stays focused and doesn't expand without a reason.
+</p>
+</div>
+<div class="process-deliverables">
+<p style="font-size:0.78rem; font-weight:600; color:var(--ink-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0;">Typical deliverables</p>
+<ul>
+<li>System audit notes and a summary of what was found</li>
+<li>Automation or CRM cleanup plan</li>
+<li>Documented fixes with root-cause notes</li>
+<li>SOP or handoff guide</li>
+<li>Cleaned tags, workflows, sequences, or lead pipeline logic</li>
+</ul>
+<p class="scope-note">Exact deliverables depend on what the audit finds. Defined upfront — not open-ended.</p>
+</div>
+</div>
+</div>
+</section>
+
 <!-- ─── SERVICES ─────────────────────────────────────────────────────── -->
-<section id="services" class="section section--alt">
+<section id="services" class="section">
 <div class="container">
 <span class="label">Services</span>
 <h2>What I help with</h2>
@@ -512,8 +622,8 @@ I take on contract and freelance engagements where backend reliability and opera
 
 <div class="card card--accent">
 <span class="card__icon">🗂</span>
-<h3>CRM Cleanup &amp; Backend Systems Support</h3>
-<p>Tags drifted, pipeline stages don't match reality, records are duplicated, and segmentation stopped making sense. I audit the underlying structure, clean the data logic, and rebuild the CRM so it reflects how leads actually move.</p>
+<h3>CRM Audit, Cleanup &amp; System Stabilization</h3>
+<p>Tags drifted, pipeline stages don't match reality, records are duplicated, and segmentation stopped making sense. I audit the underlying structure first — data logic, lifecycle stages, naming conventions — then clean and rebuild the CRM so it reflects how leads actually move.</p>
 <div class="tags">
 <span class="tag">GoHighLevel</span>
 <span class="tag">Zoho CRM</span>
@@ -524,8 +634,8 @@ I take on contract and freelance engagements where backend reliability and opera
 
 <div class="card card--accent">
 <span class="card__icon">🔧</span>
-<h3>Workflow QA &amp; Automation Troubleshooting</h3>
-<p>The wrong email fires, a trigger gets skipped, a handoff quietly fails. I trace the trigger-to-outcome logic, isolate the break point, and document the fix so it doesn't recur two weeks later.</p>
+<h3>Automation Failure Audit &amp; Troubleshooting</h3>
+<p>The wrong email fires, a trigger gets skipped, a handoff quietly fails. I trace the trigger-to-outcome logic, isolate the break point, and document the fix so it doesn't recur two weeks later. I don't guess at fixes — I confirm the cause first.</p>
 <div class="tags">
 <span class="tag">Zapier</span>
 <span class="tag">GHL Automations</span>
@@ -548,8 +658,8 @@ I take on contract and freelance engagements where backend reliability and opera
 
 <div class="card card--accent">
 <span class="card__icon">🔁</span>
-<h3>Tag, Sequence &amp; Lifecycle System Audits</h3>
-<p>Tags accumulated over time, sequences overlap, and nobody's sure which automation fires on whom. I audit the full tag and sequence structure, standardize naming, remove stale logic, and document what should trigger when.</p>
+<h3>Lifecycle Audit: Tags, Sequences &amp; Trigger Logic</h3>
+<p>Tags accumulated over time, sequences overlap, and nobody's sure which automation fires on whom. I audit the full tag and sequence structure, standardize naming, remove stale logic, and document what should trigger when and why.</p>
 <div class="tags">
 <span class="tag">Kit / ConvertKit</span>
 <span class="tag">GHL</span>
@@ -561,8 +671,8 @@ I take on contract and freelance engagements where backend reliability and opera
 
 <div class="card card--accent">
 <span class="card__icon">📋</span>
-<h3>SOP Documentation &amp; Operational Process Cleanup</h3>
-<p>The backend only works because one person knows the unwritten rules. When that changes, execution breaks. I document workflows with conditions, exceptions, ownership, and handoffs — so the system runs without constant supervision.</p>
+<h3>SOP Documentation &amp; Process Cleanup</h3>
+<p>The backend only works because one person knows the unwritten rules. When that changes, execution breaks. I document workflows with conditions, exceptions, ownership, and handoffs — so the system runs without depending on whoever built it.</p>
 <div class="tags">
 <span class="tag">SOP Writing</span>
 <span class="tag">Process Cleanup</span>
@@ -573,8 +683,8 @@ I take on contract and freelance engagements where backend reliability and opera
 
 <div class="card card--accent">
 <span class="card__icon">✅</span>
-<h3>Task Governance &amp; Client Backend Implementation</h3>
-<p>Tasks fall through Slack, ClickUp gets messy, and nobody's clear on who owns what step. I set up task governance, manage backend implementation work, and keep operations accountable so things actually get done.</p>
+<h3>Backend Implementation &amp; Task Governance Support</h3>
+<p>Tasks fall through Slack, ClickUp gets messy, and nobody's clear on who owns what step. I set up task governance, manage backend implementation work, and keep operations accountable so things actually get done. This works best with defined priorities and clear ownership from the client side.</p>
 <div class="tags">
 <span class="tag">ClickUp</span>
 <span class="tag">Trello</span>
@@ -588,7 +698,7 @@ I take on contract and freelance engagements where backend reliability and opera
 </section>
 
 <!-- ─── CASE STUDIES ──────────────────────────────────────────────────── -->
-<section id="work" class="section">
+<section id="work" class="section section--alt">
 <div class="container">
 <span class="label">Case Studies</span>
 <h2>Problems I've solved</h2>
@@ -605,7 +715,7 @@ A Whop-based membership system had a broken Invoice Paid filter, a hardcoded ema
 </p>
 <p>I traced each Zap from trigger to final action, identified every failure point, documented the fixes with step-by-step instructions, and prepared a full audit handoff so the client could take action without decoding the system from scratch.</p>
 <div class="case-card__outcome">
-Outcome: Zero subscribers entering the Churn Trial sequence identified as a logic error — not normal behavior. Documented fix path for all affected Zaps.
+Outcome: Zero subscribers entering the Churn Trial sequence identified as a logic error — not normal behavior. Documented fix path for all affected Zaps. Full handoff included so the client could execute independently.
 </div>
 <div class="tags">
 <span class="tag">Whop</span>
@@ -622,9 +732,9 @@ Outcome: Zero subscribers entering the Churn Trial sequence identified as a logi
 <p>
 Leads from multiple sources needed a clean, trackable process before reaching the outbound tool. Without a defined pipeline, the risk was duplicate outreach, invalid emails, and poor deliverability damaging the sender reputation.
 </p>
-<p>I built a Google Sheets control layer that acted as the source of truth, removed generic and unverifiable contacts, ran the list through NeverBounce, enforced a suppression list, and created a clear status flow from Verified → Queued → Sent.</p>
+<p>I built a Google Sheets control layer that acted as the source of truth, removed generic and unverifiable contacts, ran the list through NeverBounce, enforced a suppression list, and created a clear status flow from Verified → Queued → Sent. The process was documented as a repeatable workflow so future batches run the same validation without rebuilding from scratch.</p>
 <div class="case-card__outcome">
-Outcome: Clean, auditable lead pipeline. Duplicate and invalid contacts removed before reaching inboxes. Suppression logic holds across future batches.
+Outcome: Clean, auditable lead pipeline. Duplicate and invalid contacts removed before reaching inboxes. Suppression logic and documented workflow hold across future batches.
 </div>
 <div class="tags">
 <span class="tag">Instantly</span>
@@ -661,7 +771,7 @@ Approximately 226 subscribers had stalled after Email 2 in a Kit sequence and we
 </p>
 <p>I diagnosed the root cause by tracing the edit history and Kit's timer behavior, documented the fix, and resolved it without re-firing the earlier emails that subscribers had already received.</p>
 <div class="case-card__outcome">
-Outcome: Sequence restored for 226 subscribers. Root cause documented so it won't recur.
+Outcome: Sequence restored for 226 subscribers. Root cause documented so it won't recur. Fix applied without re-triggering emails subscribers had already received.
 </div>
 <div class="tags">
 <span class="tag">Kit / ConvertKit</span>
@@ -675,7 +785,7 @@ Outcome: Sequence restored for 226 subscribers. Root cause documented so it won'
 </section>
 
 <!-- ─── TESTIMONIALS ─────────────────────────────────────────────────── -->
-<section id="testimonials" class="section section--alt">
+<section id="testimonials" class="section">
 <div class="container">
 <span class="label">Client Feedback</span>
 <h2>What clients say</h2>
@@ -755,7 +865,7 @@ Outcome: Sequence restored for 226 subscribers. Root cause documented so it won'
 </section>
 
 <!-- ─── TOOLS ────────────────────────────────────────────────────────── -->
-<section id="tools" class="section">
+<section id="tools" class="section section--alt">
 <div class="container">
 <span class="label">Tools</span>
 <h2>What I work in</h2>
@@ -885,7 +995,7 @@ Outcome: Sequence restored for 226 subscribers. Root cause documented so it won'
 </section>
 
 <!-- ─── WHO I WORK WITH ───────────────────────────────────────────────── -->
-<section class="section section--alt">
+<section class="section">
 <div class="container">
 <span class="label">Best Fit</span>
 <h2>Who I work best with</h2>
@@ -915,11 +1025,28 @@ Outcome: Sequence restored for 226 subscribers. Root cause documented so it won'
 </div>
 </div>
 </div>
+
+<!-- NOT THE BEST FIT -->
+<div class="not-fit-block">
+<h3>Not the best fit</h3>
+<p style="font-size:0.9rem; margin-bottom:16px; color:var(--ink-muted);">This work is scoped and structured — it's not a good match for every situation. These are the ones that usually don't work well:</p>
+<div class="not-fit-list">
+<span class="tag tag--muted">General all-around VA roles</span>
+<span class="tag tag--muted">Undefined "do everything" ops support</span>
+<span class="tag tag--muted">Creative content production</span>
+<span class="tag tag--muted">Social media management</span>
+<span class="tag tag--muted">Graphic design</span>
+<span class="tag tag--muted">Builds from scratch</span>
+<span class="tag tag--muted">Scope that changes daily without clear ownership</span>
+<span class="tag tag--muted">Projects without a defined problem to solve</span>
+</div>
+</div>
+
 </div>
 </section>
 
 <!-- ─── CONTACT ──────────────────────────────────────────────────────── -->
-<section id="contact" class="section">
+<section id="contact" class="section section--alt">
 <div class="container">
 <div class="contact-grid">
 <div>
@@ -944,18 +1071,27 @@ Outcome: Sequence restored for 226 subscribers. Root cause documented so it won'
 <label for="subject">What do you need help with?</label>
 <select id="subject">
 <option value="">Select a service...</option>
-<option>CRM Cleanup &amp; Backend Systems Support</option>
-<option>Workflow QA &amp; Automation Troubleshooting</option>
+<option>CRM Audit, Cleanup &amp; System Stabilization</option>
+<option>Automation Failure Audit &amp; Troubleshooting</option>
 <option>Email Deliverability &amp; Lead QA</option>
-<option>Tag, Sequence &amp; Lifecycle Audit</option>
+<option>Lifecycle Audit: Tags, Sequences &amp; Trigger Logic</option>
 <option>SOP Documentation &amp; Process Cleanup</option>
-<option>Task Governance &amp; Backend Implementation</option>
+<option>Backend Implementation &amp; Task Governance Support</option>
 <option>Other / General Inquiry</option>
 </select>
 </div>
 <div class="form-field">
 <label for="message">Tell me about the problem</label>
 <textarea id="message" placeholder="Describe what's broken, what you've tried, and what you need from here..."></textarea>
+</div>
+<div class="form-field">
+<label for="impact">What is this currently affecting?</label>
+<input type="text" id="impact" placeholder="e.g. missed leads, wrong emails, stalled sequences, reporting, team confusion, deliverability..." />
+<span class="field-hint">Pick whatever applies — missed leads, wrong emails being sent, stalled sequences, reporting accuracy, team confusion, customer follow-up, deliverability.</span>
+</div>
+<div class="form-field">
+<label for="urgency">What happens if this problem isn't fixed soon?</label>
+<textarea id="urgency" style="min-height:80px;" placeholder="What's at stake if this stays broken?"></textarea>
 </div>
 <button class="btn btn--primary" onclick="handleSubmit()" style="align-self:flex-start;">Send message →</button>
 <p id="form-success" style="display:none; color: var(--accent); font-size:0.88rem;">✅ Message sent! I'll get back to you within 24 hours.</p>
@@ -1021,7 +1157,10 @@ return;
 document.getElementById('form-success').style.display = 'block';
 document.getElementById('name').value = '';
 document.getElementById('email').value = '';
+document.getElementById('subject').value = '';
 document.getElementById('message').value = '';
+document.getElementById('impact').value = '';
+document.getElementById('urgency').value = '';
 }
 
 // Scroll-reveal for cards
@@ -1035,7 +1174,7 @@ observer.unobserve(e.target);
 });
 }, { threshold: 0.08 });
 
-document.querySelectorAll('.card, .case-card, .testimonial-card, .approach-item, .stat-box').forEach(el => {
+document.querySelectorAll('.card, .case-card, .testimonial-card, .approach-item, .stat-box, .process-deliverables').forEach(el => {
 el.style.opacity = '0';
 el.style.transform = 'translateY(16px)';
 el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
